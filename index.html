@@ -1,9 +1,9 @@
 <!--
 ═══════════════════════════════════════════════════════════════
-🚀 NPA REELS MASTER V2.1
+🚀 NPA REELS MASTER V2.2
 Special Project for 3iReborn & Nganggur Preneur Akademi
 Tools: Reels Cover Prompt, Script Video, & Caption
-Update: "Salin Teks" Button + ReadOnly Textarea Fix for Mobile
+Update: Sibling's Collaboration Copy Engine (Modern + Fallback)
 ═══════════════════════════════════════════════════════════════
 -->
 
@@ -14,7 +14,7 @@ Update: "Salin Teks" Button + ReadOnly Textarea Fix for Mobile
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
     
-    <title>🚀 NPA REELS MASTER V2.1</title>
+    <title>🚀 NPA REELS MASTER V2.2</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
@@ -31,7 +31,7 @@ Update: "Salin Teks" Button + ReadOnly Textarea Fix for Mobile
     <div id="loadingScreen" class="fixed inset-0 z-[100] flex flex-col items-center justify-center bg-slate-950 transition-opacity duration-700">
         <div class="text-7xl mb-6 animate-bounce">🚀</div>
         <h1 class="text-3xl font-black tracking-wide text-center uppercase text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-600">NPA REELS MASTER</h1>
-        <p class="text-xl font-bold text-pink-500 mt-2">V2.1 Salin Teks Fix</p>
+        <p class="text-xl font-bold text-pink-500 mt-2">V2.2 Ultimate Copy</p>
         <p class="mt-4 text-slate-400 text-sm">Powered by</p>
         <h2 class="text-lg font-bold text-cyan-400 tracking-widest">NPA SMART SYSTEM VVIP</h2>
         <div class="mt-8 w-64 h-2 rounded-full bg-slate-800 overflow-hidden shadow-[0_0_15px_rgba(6,182,212,0.4)]">
@@ -137,7 +137,6 @@ Update: "Salin Teks" Button + ReadOnly Textarea Fix for Mobile
                     <h2 class="text-xl font-bold text-cyan-400"><i class="fa-solid fa-image mr-2"></i> Prompt Foto Sampul (Rasio 9:16)</h2>
                     <button onclick="copyTeks('outputPrompt')" class="bg-slate-800 hover:bg-slate-700 text-white text-xs px-4 py-2 rounded-lg font-bold transition focus:ring-2 focus:ring-cyan-500">SALIN TEKS</button>
                 </div>
-                <!-- DITAMBAHKAN READONLY -->
                 <textarea id="outputPrompt" rows="4" class="w-full bg-slate-950 border border-slate-800 rounded-xl p-4 text-sm text-cyan-200 outline-none resize-none leading-relaxed" placeholder="Prompt AI akan muncul di sini..." readonly></textarea>
             </div>
 
@@ -148,7 +147,6 @@ Update: "Salin Teks" Button + ReadOnly Textarea Fix for Mobile
                     <h2 class="text-xl font-bold text-yellow-400"><i class="fa-solid fa-video mr-2"></i> Script Video (Pola H-M-S-CTA)</h2>
                     <button onclick="copyTeks('outputScript')" class="bg-slate-800 hover:bg-slate-700 text-white text-xs px-4 py-2 rounded-lg font-bold transition focus:ring-2 focus:ring-yellow-500">SALIN TEKS</button>
                 </div>
-                <!-- DITAMBAHKAN READONLY -->
                 <textarea id="outputScript" rows="12" class="w-full bg-slate-950 border border-slate-800 rounded-xl p-4 text-sm text-yellow-100 outline-none resize-none leading-relaxed" placeholder="Naskah lengkap per scene akan muncul di sini..." readonly></textarea>
             </div>
 
@@ -159,7 +157,6 @@ Update: "Salin Teks" Button + ReadOnly Textarea Fix for Mobile
                     <h2 class="text-xl font-bold text-pink-400"><i class="fa-solid fa-pen-nib mr-2"></i> Caption Facebook Pro</h2>
                     <button onclick="copyTeks('outputCaption')" class="bg-slate-800 hover:bg-slate-700 text-white text-xs px-4 py-2 rounded-lg font-bold transition focus:ring-2 focus:ring-pink-500">SALIN TEKS</button>
                 </div>
-                <!-- DITAMBAHKAN READONLY -->
                 <textarea id="outputCaption" rows="8" class="w-full bg-slate-950 border border-slate-800 rounded-xl p-4 text-sm text-pink-100 outline-none resize-none leading-relaxed" placeholder="Caption panjang untuk FB akan muncul di sini..." readonly></textarea>
             </div>
 
@@ -237,7 +234,6 @@ Update: "Salin Teks" Button + ReadOnly Textarea Fix for Mobile
         };
 
         window.onload = function () {
-            // MANTRA ROKET: Hilangkan Splash Screen setelah 1.5 Detik
             setTimeout(function () {
                 const splash = document.getElementById("loadingScreen");
                 if(splash) {
@@ -298,7 +294,7 @@ Update: "Salin Teks" Button + ReadOnly Textarea Fix for Mobile
         }
 
         // ==========================================
-        // 🚀 MESIN COPY 100% FB PRO (SUPER MURNI)
+        // 🚀 MESIN COPY 100% FB PRO (SUPER MURNI - UPGRADED BY SIBLING)
         // ==========================================
         function copyTeks(id) { 
             var textToCopy = document.getElementById(id);
@@ -309,17 +305,29 @@ Update: "Salin Teks" Button + ReadOnly Textarea Fix for Mobile
                 return;
             }
 
-            textToCopy.select(); 
-            textToCopy.setSelectionRange(0, 99999); // Khusus HP
-            
+            // Metode 1: API Clipboard Modern (Paling direkomendasikan untuk HP)
+            if (navigator.clipboard && window.isSecureContext) {
+                navigator.clipboard.writeText(textToCopy.value).then(function() {
+                    alert("Berhasil disalin ke memori HP, Komandan! 🫡");
+                }).catch(function(err) {
+                    fallbackCopyText(textToCopy);
+                });
+            } else {
+                // Metode 2: Cadangan jika browser jadul
+                fallbackCopyText(textToCopy);
+            }
+        }
+
+        // Fungsi Cadangan
+        function fallbackCopyText(textAreaElement) {
+            textAreaElement.select();
+            textAreaElement.setSelectionRange(0, 99999); // Khusus HP
             try {
-                document.execCommand('copy'); 
-                alert("Berhasil disalin ke memori HP, Komandan! 🫡"); 
+                document.execCommand('copy');
+                alert("Berhasil disalin ke memori HP, Komandan! 🫡");
             } catch (err) {
                 alert("Waduh, HP Ndan menolak fungsi copy otomatis. Mohon copy manual ya Ndan! 🙏");
             }
-            
-            // Bersihkan seleksi blok birunya
             window.getSelection().removeAllRanges();
         }
         // ==========================================
