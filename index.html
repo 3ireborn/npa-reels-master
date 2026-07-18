@@ -1,9 +1,9 @@
 <!--
 ═══════════════════════════════════════════════════════════════
-🚀 NPA REELS MASTER V1.5
+🚀 NPA REELS MASTER V1.6
 Special Project for 3iReborn & Nganggur Preneur Akademi
 Tools: Reels Cover Prompt, Script Video, & Caption
-Update: Switched to Stable Gemini 1.5 Flash Model
+Update: Rocket Splash Screen is BACK & Restored gemini-2.5-flash
 ═══════════════════════════════════════════════════════════════
 -->
 
@@ -14,7 +14,7 @@ Update: Switched to Stable Gemini 1.5 Flash Model
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
     
-    <title>🚀 NPA REELS MASTER V1.5</title>
+    <title>🚀 NPA REELS MASTER V1.6</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
@@ -27,8 +27,20 @@ Update: Switched to Stable Gemini 1.5 Flash Model
 </head>
 <body class="min-h-screen p-4 md:p-6 lg:p-8 flex flex-col">
 
+    <!-- SPLASH SCREEN ANIMASI ROKET -->
+    <div id="loadingScreen" class="fixed inset-0 z-[100] flex flex-col items-center justify-center bg-slate-950 transition-opacity duration-700">
+        <div class="text-7xl mb-6 animate-bounce">🚀</div>
+        <h1 class="text-3xl font-black tracking-wide text-center uppercase text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-600">NPA REELS MASTER</h1>
+        <p class="text-xl font-bold text-pink-500 mt-2">V1.6 Ultimate</p>
+        <p class="mt-4 text-slate-400 text-sm">Powered by</p>
+        <h2 class="text-lg font-bold text-cyan-400 tracking-widest">NPA SMART SYSTEM VVIP</h2>
+        <div class="mt-8 w-64 h-2 rounded-full bg-slate-800 overflow-hidden shadow-[0_0_15px_rgba(6,182,212,0.4)]">
+            <div class="h-full w-full bg-gradient-to-r from-blue-500 via-cyan-400 to-pink-500 animate-[pulse_1s_ease-in-out_infinite]"></div>
+        </div>
+    </div>
+
     <!-- HEADER -->
-    <div class="max-w-6xl mx-auto mb-8 text-center">
+    <div class="max-w-6xl mx-auto mb-8 text-center mt-4">
         <div class="inline-block px-4 py-1 rounded-full bg-blue-900/50 border border-blue-500 text-blue-300 text-xs font-bold tracking-widest mb-3">NPA EXCLUSIVE TOOL</div>
         <h1 class="text-4xl md:text-5xl font-black uppercase text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-600 tracking-tight">REELS MASTER</h1>
         <p class="text-slate-400 mt-2 font-medium text-sm md:text-base">Auto-Generate Cover Reels 9:16, Script Video, & Caption</p>
@@ -158,7 +170,7 @@ Update: Switched to Stable Gemini 1.5 Flash Model
             API Key ibarat <strong>"Kunci Akses Pribadi"</strong> untuk menyambungkan aplikasi ini langsung ke superkomputer AI Google. Dengan menggunakan API Key buatan Anda sendiri, aplikasi ini beroperasi 100% secara lokal di browser HP/Laptop Anda. Artinya, <strong>privasi foto wajah dan data bisnis Anda aman tak tersentuh</strong>, dan yang paling penting: Anda bisa menikmati teknologi sekelas agensi digital ini secara <strong>GRATIS</strong> tanpa harus bayar biaya langganan server bulanan.
         </p>
         
-        <!-- PRASASTI CLOSING STATEMENT -->
+        <!-- PRASASTI CLOSING STATEMENT (UKURAN DISCLAIMER) -->
         <div class="mt-8 border-t border-slate-800/50 pt-6 max-w-2xl mx-auto">
             <p class="text-xs text-slate-400 leading-relaxed font-medium">
                 <span class="text-pink-400 font-semibold">Salam Penuh Cinta 💞💞💞 Dari NPA Smart System VVIP</span><br>
@@ -222,6 +234,15 @@ Update: Switched to Stable Gemini 1.5 Flash Model
         };
 
         window.onload = function () {
+            // MANTRA ROKET: Hilangkan Splash Screen setelah 1.5 Detik
+            setTimeout(function () {
+                const splash = document.getElementById("loadingScreen");
+                if(splash) {
+                    splash.style.opacity = '0';
+                    setTimeout(() => splash.style.display = "none", 700);
+                }
+            }, 1500);
+
             updateTemplates();
             const savedKey = localStorage.getItem("npa_reels_api_key");
             if (savedKey) document.getElementById("apiKey").value = savedKey;
@@ -365,8 +386,8 @@ Update: Switched to Stable Gemini 1.5 Flash Model
             }`;
 
             try {
-                // PERBAIKAN: Mengganti mesin dari gemini-2.5-flash ke gemini-1.5-flash yang super stabil
-                const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${apiKey}`, {
+                // KEMBALI KE MESIN SAKTI GEMINI-2.5-FLASH
+                const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${apiKey}`, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ 
@@ -377,10 +398,9 @@ Update: Switched to Stable Gemini 1.5 Flash Model
 
                 const data = await response.json();
                 
-                // Cek Error spesifik 429 Quota Exceeded agar notifikasinya manusiawi
                 if (data.error) {
                     if (data.error.code === 429) {
-                        throw new Error("Mesin sedang istirahat (Cool Down) karena terlalu cepat Ndan! Tunggu sekitar 1 Menit lalu klik Generate lagi.");
+                        throw new Error("Mesin API Key ini sedang istirahat (Cool Down) karena Limit Gratisan! Tunggu sekitar 1 Menit lalu klik Generate lagi ya Ndan.");
                     } else {
                         throw new Error(data.error.message);
                     }
