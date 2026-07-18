@@ -1,0 +1,413 @@
+<!--
+═══════════════════════════════════════════════════════════════
+🚀 NPA REELS MASTER V1.5
+Special Project for 3iReborn & Nganggur Preneur Akademi
+Tools: Reels Cover Prompt, Script Video, & Caption
+Update: Switched to Stable Gemini 1.5 Flash Model
+═══════════════════════════════════════════════════════════════
+-->
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    
+    <title>🚀 NPA REELS MASTER V1.5</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    
+    <style>
+        body { font-family: 'Poppins', sans-serif; background-color: #0b1120; color: #f8fafc; }
+        .bg-neon-blue { background: linear-gradient(135deg, #2563eb, #06b6d4); }
+        .text-neon { text-shadow: 0 0 10px rgba(6, 182, 212, 0.5); }
+    </style>
+</head>
+<body class="min-h-screen p-4 md:p-6 lg:p-8 flex flex-col">
+
+    <!-- HEADER -->
+    <div class="max-w-6xl mx-auto mb-8 text-center">
+        <div class="inline-block px-4 py-1 rounded-full bg-blue-900/50 border border-blue-500 text-blue-300 text-xs font-bold tracking-widest mb-3">NPA EXCLUSIVE TOOL</div>
+        <h1 class="text-4xl md:text-5xl font-black uppercase text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-600 tracking-tight">REELS MASTER</h1>
+        <p class="text-slate-400 mt-2 font-medium text-sm md:text-base">Auto-Generate Cover Reels 9:16, Script Video, & Caption</p>
+    </div>
+
+    <!-- MAIN DASHBOARD -->
+    <div class="max-w-6xl mx-auto grid lg:grid-cols-12 gap-8 flex-grow">
+        
+        <!-- BAGIAN KIRI: INPUT & PENGATURAN -->
+        <div class="lg:col-span-4 space-y-6">
+            <div class="bg-slate-900/80 backdrop-blur-xl border border-slate-800 rounded-3xl p-6 shadow-2xl">
+                
+                <!-- API Key -->
+                <div class="mb-5">
+                    <div class="flex justify-between items-end mb-2">
+                        <label class="text-xs font-bold text-slate-400 uppercase tracking-wider block">🔑 1. API Key Gemini</label>
+                        <a href="https://aistudio.google.com/app/apikey" target="_blank" class="text-[10px] bg-red-600 hover:bg-red-500 text-white font-bold px-3 py-1.5 rounded-lg shadow-lg transition-all animate-pulse"><i class="fa-solid fa-key mr-1"></i> Buat API Gratis</a>
+                    </div>
+                    <input type="password" id="apiKey" placeholder="Paste API Key..." class="w-full bg-slate-800 border border-slate-700 rounded-xl px-4 py-3 text-sm focus:border-cyan-500 outline-none transition-all">
+                </div>
+
+                <!-- Upload Foto -->
+                <div class="mb-5">
+                    <label class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-2 block">📸 2. Foto Referensi Model</label>
+                    <div class="border-2 border-dashed border-slate-700 rounded-2xl p-3 text-center bg-slate-800/50">
+                        <img id="previewImage" src="https://placehold.co/400x500/1e293b/FFFFFF?text=FOTO+POTRAIT" class="w-32 h-40 object-cover mx-auto rounded-xl shadow-lg mb-3">
+                        <input id="photoUpload" type="file" accept="image/*" class="hidden" onchange="previewFoto(event)">
+                        <label for="photoUpload" class="block w-full bg-blue-600 hover:bg-blue-500 rounded-xl py-2.5 text-sm font-bold shadow-lg shadow-blue-500/30 cursor-pointer transition-all">
+                            Pilih Foto
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Pengaturan Form -->
+                <div class="space-y-4">
+                    <!-- Tema -->
+                    <div>
+                        <label class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-2 block">💼 3. Tema Bisnis</label>
+                        <select id="theme" onchange="updateTemplates()" class="w-full bg-slate-800 border border-slate-700 rounded-xl px-4 py-3 text-sm focus:border-cyan-500 outline-none text-cyan-300 font-semibold">
+                            <option value="3iReborn">3iReborn</option>
+                            <option value="Istikmal Syariah">Istikmal Syariah</option>
+                            <option value="Reward Cruise">Reward Cruise</option>
+                            <option value="Melali Bali">Melali Bali</option>
+                            <option value="NPA Smart System">NPA Smart System</option>
+                            <option value="Custom">Custom (Ketik Sendiri)</option>
+                        </select>
+                    </div>
+
+                    <!-- Template Judul (Dinamic) -->
+                    <div>
+                        <label class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-2 block">📝 4. Template Judul Sampul</label>
+                        <select id="templateTitle" class="w-full bg-slate-800 border border-slate-700 rounded-xl px-4 py-3 text-sm focus:border-cyan-500 outline-none text-yellow-400 font-semibold">
+                            <!-- Diisi oleh Javascript -->
+                        </select>
+                        <input type="text" id="customTitle" placeholder="Ketik Judul Custom..." class="w-full mt-3 bg-slate-800 border border-amber-500 rounded-xl px-4 py-3 text-sm hidden">
+                    </div>
+
+                    <!-- Ekspresi Wajah -->
+                    <div>
+                        <label class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-2 block">🎭 5. Ekspresi Model</label>
+                        <select id="expression" class="w-full bg-slate-800 border border-slate-700 rounded-xl px-4 py-3 text-sm focus:border-cyan-500 outline-none text-pink-400">
+                            <option value="Senyum Percaya Diri & Menunjuk">😃 Senyum Percaya Diri & Menunjuk Teks</option>
+                            <option value="Berwibawa & Profesional">👔 Berwibawa & Profesional</option>
+                            <option value="Kaget / Mata Melotot">😲 Kaget / Mata Melotot</option>
+                            <option value="Sedih / Bingung / Memegang Kepala">😥 Sedih / Bingung (Masalah)</option>
+                            <option value="Antusias / Sangat Semangat">🔥 Antusias / Sangat Semangat</option>
+                        </select>
+                    </div>
+
+                    <!-- Format Video -->
+                    <div>
+                        <label class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-2 block">🎬 6. Format Video</label>
+                        <select id="videoFormat" class="w-full bg-slate-800 border border-slate-700 rounded-xl px-4 py-3 text-sm focus:border-cyan-500 outline-none text-emerald-400">
+                            <option value="3 Scene (Masing-masing 8-10 Detik)">Pendek - 3 Scene (Total ~30 Detik)</option>
+                            <option value="5 Scene (Masing-masing 8-10 Detik)">Panjang - 5 Scene (Total ~50 Detik)</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Tombol Eksekusi -->
+                <button onclick="prosesGenerate()" id="btnGenerateAll" class="w-full mt-6 bg-neon-blue hover:scale-[1.02] rounded-xl py-4 font-black text-lg shadow-[0_0_20px_rgba(37,99,235,0.4)] transition-all">
+                    🚀 GENERATE SEKARANG
+                </button>
+            </div>
+        </div>
+
+        <!-- BAGIAN KANAN: OUTPUT HASIL -->
+        <div class="lg:col-span-8 space-y-6" id="outputSection">
+            
+            <!-- Output Foto Sampul -->
+            <div class="bg-slate-900/80 backdrop-blur-xl border border-slate-800 rounded-3xl p-6 shadow-2xl relative overflow-hidden">
+                <div class="absolute top-0 right-0 w-32 h-32 bg-cyan-500/10 rounded-full blur-3xl"></div>
+                <div class="flex justify-between items-center mb-4">
+                    <h2 class="text-xl font-bold text-cyan-400"><i class="fa-solid fa-image mr-2"></i> Prompt Foto Sampul (Rasio 9:16)</h2>
+                    <button onclick="copyTeks('outputPrompt', this)" class="bg-slate-800 hover:bg-slate-700 text-white text-xs px-4 py-2 rounded-lg font-bold transition focus:ring-2 focus:ring-cyan-500">COPY</button>
+                </div>
+                <textarea id="outputPrompt" rows="4" class="w-full bg-slate-950 border border-slate-800 rounded-xl p-4 text-sm text-cyan-200 outline-none resize-none leading-relaxed" placeholder="Prompt AI akan muncul di sini..."></textarea>
+            </div>
+
+            <!-- Output Script Video -->
+            <div class="bg-slate-900/80 backdrop-blur-xl border border-slate-800 rounded-3xl p-6 shadow-2xl relative overflow-hidden">
+                <div class="absolute top-0 right-0 w-32 h-32 bg-yellow-500/10 rounded-full blur-3xl"></div>
+                <div class="flex justify-between items-center mb-4">
+                    <h2 class="text-xl font-bold text-yellow-400"><i class="fa-solid fa-video mr-2"></i> Script Video (Pola H-M-S-CTA)</h2>
+                    <button onclick="copyTeks('outputScript', this)" class="bg-slate-800 hover:bg-slate-700 text-white text-xs px-4 py-2 rounded-lg font-bold transition focus:ring-2 focus:ring-yellow-500">COPY</button>
+                </div>
+                <textarea id="outputScript" rows="12" class="w-full bg-slate-950 border border-slate-800 rounded-xl p-4 text-sm text-yellow-100 outline-none resize-none leading-relaxed" placeholder="Naskah lengkap per scene akan muncul di sini..."></textarea>
+            </div>
+
+            <!-- Output FB Caption -->
+            <div class="bg-slate-900/80 backdrop-blur-xl border border-slate-800 rounded-3xl p-6 shadow-2xl relative overflow-hidden">
+                <div class="absolute top-0 right-0 w-32 h-32 bg-pink-500/10 rounded-full blur-3xl"></div>
+                <div class="flex justify-between items-center mb-4">
+                    <h2 class="text-xl font-bold text-pink-400"><i class="fa-solid fa-pen-nib mr-2"></i> Caption Facebook Pro</h2>
+                    <button onclick="copyTeks('outputCaption', this)" class="bg-slate-800 hover:bg-slate-700 text-white text-xs px-4 py-2 rounded-lg font-bold transition focus:ring-2 focus:ring-pink-500">COPY</button>
+                </div>
+                <textarea id="outputCaption" rows="8" class="w-full bg-slate-950 border border-slate-800 rounded-xl p-4 text-sm text-pink-100 outline-none resize-none leading-relaxed" placeholder="Caption panjang untuk FB akan muncul di sini..."></textarea>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- EDUKASI & CLOSING FOOTER -->
+    <div class="max-w-6xl mx-auto mt-12 mb-8 border-t border-slate-800 pt-8 text-center px-4">
+        <h3 class="text-base font-bold text-slate-300 mb-3"><i class="fa-solid fa-shield-halved text-cyan-500 mr-2"></i>Kenapa Harus Memakai API Key Gemini Sendiri?</h3>
+        <p class="text-xs text-slate-400 leading-relaxed max-w-3xl mx-auto mb-6">
+            API Key ibarat <strong>"Kunci Akses Pribadi"</strong> untuk menyambungkan aplikasi ini langsung ke superkomputer AI Google. Dengan menggunakan API Key buatan Anda sendiri, aplikasi ini beroperasi 100% secara lokal di browser HP/Laptop Anda. Artinya, <strong>privasi foto wajah dan data bisnis Anda aman tak tersentuh</strong>, dan yang paling penting: Anda bisa menikmati teknologi sekelas agensi digital ini secara <strong>GRATIS</strong> tanpa harus bayar biaya langganan server bulanan.
+        </p>
+        
+        <!-- PRASASTI CLOSING STATEMENT -->
+        <div class="mt-8 border-t border-slate-800/50 pt-6 max-w-2xl mx-auto">
+            <p class="text-xs text-slate-400 leading-relaxed font-medium">
+                <span class="text-pink-400 font-semibold">Salam Penuh Cinta 💞💞💞 Dari NPA Smart System VVIP</span><br>
+                <span class="text-cyan-500 font-bold tracking-wider uppercase">Semangat Menembus Batas Kemustahilan 🚀</span><br>
+                <span class="text-slate-500 mt-1 block">Copyright @npa smart system</span>
+                <span class="text-blue-500 font-semibold">#3ireborn #NganggurAjaBisa #DisabilitasPunyaKarya</span>
+            </p>
+        </div>
+    </div>
+
+    <!-- LOADING MODAL -->
+    <div id="loadingModal" class="fixed inset-0 bg-black/80 backdrop-blur-sm hidden items-center justify-center z-50 transition-all">
+        <div class="bg-slate-900 border border-slate-700 rounded-3xl p-8 max-w-sm w-full text-center shadow-[0_0_50px_rgba(37,99,235,0.3)]">
+            <div class="text-6xl animate-bounce mb-4">🤖</div>
+            <h3 class="text-xl font-bold text-white mb-2">Meracik Naskah & Sampul...</h3>
+            <p class="text-xs text-slate-400 mb-6">Menerapkan pola H-M-S-CTA dengan gaya santai dan berwibawa.</p>
+            <div class="w-full bg-slate-800 rounded-full h-2 overflow-hidden">
+                <div class="bg-gradient-to-r from-blue-500 to-cyan-400 h-2 rounded-full w-full animate-[pulse_1s_ease-in-out_infinite]"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Data Template Judul per Tema
+        const templates = {
+            "3iReborn": [
+                "3 Syarat Join di 3iReborn yang Wajib Diketahui!",
+                "5 Kesalahan Fatal Pemula di 3iReborn (Hindari Ini!)",
+                "Rahasia 1 Tahun Tembus Target 3iReborn",
+                "Jangan Gabung 3iReborn Sebelum Tahu Fakta Ini!",
+                "3 Bukti Nyata Kehebatan Sistem 3iReborn"
+            ],
+            "Istikmal Syariah": [
+                "5 Hal Penting Sebelum Berinvestasi di Istikmal Syariah",
+                "Bebas Riba! 3 Keunggulan Utama Istikmal Syariah",
+                "Rahasia Tenang Finansial ala Istikmal Syariah",
+                "Jangan Asal Pilih! Cek 3 Syarat Syariah Ini",
+                "Bongkar Sistem Transparan Istikmal Syariah"
+            ],
+            "Reward Cruise": [
+                "3 Cara Cepat Tembus Reward Cruise Tanpa Ribet",
+                "Bongkar Rahasia Liburan Mewah Gratis ke Luar Negeri!",
+                "5 Persiapan Wajib Sebelum Berangkat Reward Cruise",
+                "Masih Bingung Cara Dapat Reward Cruise? Tonton Ini!",
+                "Gak Nyangka! Semudah Ini Ikut Reward Cruise"
+            ],
+            "Melali Bali": [
+                "5 Destinasi Rahasia Melali Bali yang Belum Banyak Tahu",
+                "3 Tips Hemat Liburan Mewah di Melali Bali",
+                "Jangan ke Bali Sebelum Nonton Video Melali Bali Ini!",
+                "Rahasia Cuan Sambil Liburan Bersama Melali Bali",
+                "Fakta Unik Program Melali Bali yang Bikin Penasaran"
+            ],
+            "NPA Smart System": [
+                "3 Fitur Sakti NPA Smart System Bikin Kerja Otomatis",
+                "Bongkar Rahasia NPA Smart System Untuk Pemula",
+                "5 Alasan Wajib Punya NPA Smart System Hari Ini",
+                "Kerja Santai Hasil Maksimal? Ini Rahasia NPA Smart System!",
+                "Jangan Ketinggalan Era Digital! Pahami 3 Hal Ini di NPA"
+            ]
+        };
+
+        window.onload = function () {
+            updateTemplates();
+            const savedKey = localStorage.getItem("npa_reels_api_key");
+            if (savedKey) document.getElementById("apiKey").value = savedKey;
+        };
+
+        function updateTemplates() {
+            const theme = document.getElementById("theme").value;
+            const selectTemplate = document.getElementById("templateTitle");
+            const customTitle = document.getElementById("customTitle");
+            
+            selectTemplate.innerHTML = "";
+            
+            if (theme === "Custom") {
+                selectTemplate.classList.add("hidden");
+                customTitle.classList.remove("hidden");
+            } else {
+                selectTemplate.classList.remove("hidden");
+                customTitle.classList.add("hidden");
+                
+                templates[theme].forEach(title => {
+                    let option = document.createElement("option");
+                    option.value = title;
+                    option.text = title;
+                    selectTemplate.appendChild(option);
+                });
+                let optionCustom = document.createElement("option");
+                optionCustom.value = "Custom";
+                optionCustom.text = "✍️ Buat Judul Sendiri...";
+                selectTemplate.appendChild(optionCustom);
+            }
+        }
+
+        document.getElementById("templateTitle").addEventListener("change", function() {
+            if(this.value === "Custom") {
+                this.classList.add("hidden");
+                document.getElementById("customTitle").classList.remove("hidden");
+            }
+        });
+
+        let globalBase64Image = "";
+        function previewFoto(event) {
+            const file = event.target.files[0];
+            if (!file) return;
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                document.getElementById('previewImage').src = e.target.result;
+                globalBase64Image = e.target.result.split(',')[1];
+            };
+            reader.readAsDataURL(file);
+        }
+
+        // MESIN COPY VISUAL
+        function copyTeks(id, btnElement) { 
+            const textEl = document.getElementById(id);
+            if (!textEl || textEl.value.trim() === "") return;
+            
+            const originalText = btnElement.innerHTML;
+            const originalClasses = btnElement.className;
+
+            const triggerSuccess = () => {
+                btnElement.innerHTML = '<i class="fa-solid fa-check mr-1"></i> COPIED';
+                btnElement.className = "bg-green-600 hover:bg-green-500 text-white text-xs px-4 py-2 rounded-lg font-bold transition shadow-[0_0_15px_rgba(22,163,74,0.6)]";
+                setTimeout(() => {
+                    btnElement.innerHTML = originalText;
+                    btnElement.className = originalClasses;
+                }, 2000);
+            };
+
+            if (navigator.clipboard && window.isSecureContext) {
+                navigator.clipboard.writeText(textEl.value).then(() => {
+                    triggerSuccess();
+                }).catch(err => {
+                    fallbackCopyText(textEl, triggerSuccess);
+                });
+            } else {
+                fallbackCopyText(textEl, triggerSuccess);
+            }
+        }
+
+        function fallbackCopyText(textEl, successCallback) {
+            textEl.select();
+            textEl.setSelectionRange(0, 99999);
+            try {
+                document.execCommand('copy');
+                successCallback();
+            } catch (err) {
+                console.error('Fallback copy error:', err);
+            }
+            window.getSelection().removeAllRanges();
+        }
+
+        async function prosesGenerate() {
+            const apiKey = document.getElementById('apiKey').value.trim();
+            const theme = document.getElementById('theme').value;
+            const expression = document.getElementById('expression').value;
+            const videoFormat = document.getElementById('videoFormat').value;
+            
+            let finalTitle = "";
+            if (theme === "Custom") {
+                finalTitle = document.getElementById('customTitle').value.trim();
+            } else {
+                const dropTitle = document.getElementById('templateTitle').value;
+                if (dropTitle === "Custom") {
+                    finalTitle = document.getElementById('customTitle').value.trim();
+                } else {
+                    finalTitle = dropTitle;
+                }
+            }
+            
+            if (!apiKey || !globalBase64Image) {
+                alert("Komandan! Pastikan API Key diisi dan Foto Referensi sudah di-upload! 🫡");
+                return;
+            }
+            if (!finalTitle) {
+                alert("Tolong ketik atau pilih Judulnya dulu Ndan! 🫡");
+                return;
+            }
+
+            localStorage.setItem("npa_reels_api_key", apiKey);
+
+            const loadingModal = document.getElementById('loadingModal');
+            loadingModal.classList.remove('hidden');
+            loadingModal.classList.add('flex');
+
+            const promptText = `Anda adalah Ahli Copywriting, Content Creator FB Pro, dan AI Prompter tingkat dewa.
+            Analisa gambar referensi yang dilampirkan. Buatkan konten khusus Facebook Reels berdasarkan:
+            - Tema Bisnis: ${theme}
+            - Judul Utama: "${finalTitle}"
+            - Ekspresi Model: ${expression}
+            - Format Video: ${videoFormat}
+            - Gaya Bahasa: Santai, sopan, bersahabat, namun tetap dewasa dan berwibawa (membangun trust).
+
+            BALAS HANYA DENGAN JSON VALID. 
+            PERINGATAN KERAS: Semua nilai/value di dalam JSON WAJIB berupa TEKS BIASA (STRING). Jangan gunakan array [] atau object {} di dalam nilainya. Gunakan \\n untuk garis baru (enter).
+
+            Format JSON:
+            {
+                "prompt": "Buatkan instruksi Prompt Gambar AI untuk membuat Foto Sampul Reels. Syarat mutlak: Aspek rasio 9:16 (portrait). Jadikan gambar referensi sebagai patokan utama. Model berekspresi '${expression}'. Di area aman (tengah agak ke atas), letakkan teks tipografi 3D Bold Gradient tebal bertuliskan persis judul ini: '${finalTitle}'. Tuliskan sebagai 1 paragraf string.",
+                "script": "Naskah Video H-M-S-CTA (${videoFormat}). Tuliskan semua naskah dan instruksi scene dalam 1 STRING TEKS PANJANG. Gunakan karakter \\n untuk memisahkan baris antar scene. Dilarang keras menggunakan format Array.",
+                "caption": "Buatkan Caption Facebook (H-M-S-CTA) bergaya santai tapi berwibawa. Tuliskan sebagai 1 STRING TEKS PANJANG."
+            }`;
+
+            try {
+                // PERBAIKAN: Mengganti mesin dari gemini-2.5-flash ke gemini-1.5-flash yang super stabil
+                const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${apiKey}`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ 
+                        contents: [{ parts: [{ text: promptText }, { inline_data: { mime_type: "image/jpeg", data: globalBase64Image } }] }],
+                        generationConfig: { response_mime_type: "application/json" }
+                    })
+                });
+
+                const data = await response.json();
+                
+                // Cek Error spesifik 429 Quota Exceeded agar notifikasinya manusiawi
+                if (data.error) {
+                    if (data.error.code === 429) {
+                        throw new Error("Mesin sedang istirahat (Cool Down) karena terlalu cepat Ndan! Tunggu sekitar 1 Menit lalu klik Generate lagi.");
+                    } else {
+                        throw new Error(data.error.message);
+                    }
+                }
+                
+                if (!data.candidates || data.candidates.length === 0) throw new Error("Diblokir Filter Keamanan!");
+
+                let rawText = data.candidates[0].content.parts[0].text.replace(/\`\`\`json/g, '').replace(/\`\`\`/g, '').trim();
+                const resultJSON = JSON.parse(rawText);
+
+                let scriptOutput = resultJSON.script;
+                if (typeof scriptOutput === 'object') {
+                    scriptOutput = JSON.stringify(scriptOutput, null, 2);
+                }
+
+                document.getElementById('outputPrompt').value = resultJSON.prompt;
+                document.getElementById('outputScript').value = scriptOutput;
+                document.getElementById('outputCaption').value = resultJSON.caption;
+                
+            } catch (e) { 
+                alert("Error Ndan: " + e.message); 
+            } finally { 
+                loadingModal.classList.remove('flex');
+                loadingModal.classList.add('hidden');
+                document.getElementById("outputSection").scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+    </script>
+</body>
+</html>
