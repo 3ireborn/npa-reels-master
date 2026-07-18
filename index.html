@@ -1,6 +1,6 @@
 <!--
 ═══════════════════════════════════════════════════════════════
-🚀 NPA REELS MASTER V1.0
+🚀 NPA REELS MASTER V1.2
 Special Project for 3iReborn & Nganggur Preneur Akademi
 Tools: Reels Cover Prompt, Script Video, & Caption
 ═══════════════════════════════════════════════════════════════
@@ -13,7 +13,7 @@ Tools: Reels Cover Prompt, Script Video, & Caption
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
     
-    <title>🚀 NPA REELS MASTER</title>
+    <title>🚀 NPA REELS MASTER V1.2</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
@@ -24,7 +24,7 @@ Tools: Reels Cover Prompt, Script Video, & Caption
         .text-neon { text-shadow: 0 0 10px rgba(6, 182, 212, 0.5); }
     </style>
 </head>
-<body class="min-h-screen p-4 md:p-6 lg:p-8">
+<body class="min-h-screen p-4 md:p-6 lg:p-8 flex flex-col">
 
     <!-- HEADER -->
     <div class="max-w-6xl mx-auto mb-8 text-center">
@@ -34,7 +34,7 @@ Tools: Reels Cover Prompt, Script Video, & Caption
     </div>
 
     <!-- MAIN DASHBOARD -->
-    <div class="max-w-6xl mx-auto grid lg:grid-cols-12 gap-8">
+    <div class="max-w-6xl mx-auto grid lg:grid-cols-12 gap-8 flex-grow">
         
         <!-- BAGIAN KIRI: INPUT & PENGATURAN -->
         <div class="lg:col-span-4 space-y-6">
@@ -42,7 +42,10 @@ Tools: Reels Cover Prompt, Script Video, & Caption
                 
                 <!-- API Key -->
                 <div class="mb-5">
-                    <label class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-2 block">🔑 1. API Key Gemini</label>
+                    <div class="flex justify-between items-end mb-2">
+                        <label class="text-xs font-bold text-slate-400 uppercase tracking-wider block">🔑 1. API Key Gemini</label>
+                        <a href="https://aistudio.google.com/app/apikey" target="_blank" class="text-[10px] bg-red-600 hover:bg-red-500 text-white font-bold px-3 py-1.5 rounded-lg shadow-lg transition-all animate-pulse"><i class="fa-solid fa-key mr-1"></i> Buat API Gratis Di Sini</a>
+                    </div>
                     <input type="password" id="apiKey" placeholder="Paste API Key..." class="w-full bg-slate-800 border border-slate-700 rounded-xl px-4 py-3 text-sm focus:border-cyan-500 outline-none transition-all">
                 </div>
 
@@ -138,12 +141,28 @@ Tools: Reels Cover Prompt, Script Video, & Caption
             <div class="bg-slate-900/80 backdrop-blur-xl border border-slate-800 rounded-3xl p-6 shadow-2xl relative overflow-hidden">
                 <div class="absolute top-0 right-0 w-32 h-32 bg-pink-500/10 rounded-full blur-3xl"></div>
                 <div class="flex justify-between items-center mb-4">
-                    <h2 class="text-xl font-bold text-pink-400"><i class="fa-solid fa-pen-nib mr-2"></i> Caption Facebook Pro (H-M-S-CTA)</h2>
+                    <h2 class="text-xl font-bold text-pink-400"><i class="fa-solid fa-pen-nib mr-2"></i> Caption Facebook Pro</h2>
                     <button onclick="copyTeks('outputCaption')" class="bg-slate-800 hover:bg-slate-700 text-white text-xs px-4 py-2 rounded-lg font-bold transition">COPY</button>
                 </div>
                 <textarea id="outputCaption" rows="8" class="w-full bg-slate-950 border border-slate-800 rounded-xl p-4 text-sm text-pink-100 outline-none resize-none leading-relaxed" placeholder="Caption panjang untuk FB akan muncul di sini..."></textarea>
             </div>
 
+        </div>
+    </div>
+
+    <!-- EDUKASI & CLOSING FOOTER -->
+    <div class="max-w-6xl mx-auto mt-12 mb-8 border-t border-slate-800 pt-8 text-center px-4">
+        <h3 class="text-lg font-bold text-slate-300 mb-3"><i class="fa-solid fa-shield-halved text-cyan-500 mr-2"></i>Kenapa Harus Memakai API Key Gemini Sendiri?</h3>
+        <p class="text-sm text-slate-400 leading-relaxed max-w-3xl mx-auto mb-8">
+            API Key ibarat <strong>"Kunci Akses Pribadi"</strong> untuk menyambungkan aplikasi ini langsung ke superkomputer AI Google. Dengan menggunakan API Key buatan Anda sendiri, aplikasi ini beroperasi 100% secara lokal di browser HP/Laptop Anda. Artinya, <strong>privasi foto wajah dan data bisnis Anda aman tak tersentuh</strong>, dan yang paling penting: Anda bisa menikmati teknologi sekelas agensi digital ini secara <strong>GRATIS</strong> tanpa harus bayar biaya langganan server bulanan.
+        </p>
+        
+        <!-- PRASASTI CLOSING STATEMENT -->
+        <div class="mt-10 border-t border-slate-700/50 pt-10 max-w-2xl mx-auto space-y-3">
+            <p class="text-xl font-black text-pink-500 tracking-wide">Salam Penuh Cinta 💞💞💞 Dari NPA Smart System VVIP</p>
+            <p class="text-lg font-bold text-cyan-400 uppercase tracking-widest">Semangat Menembus Batas Kemustahilan 🚀</p>
+            <p class="text-sm text-slate-500 pt-4 font-semibold">Copyright @npa smart system</p>
+            <p class="text-sm text-blue-400 font-bold tracking-wider">#3ireborn #NganggurAjaBisa #DisabilitasPunyaKarya</p>
         </div>
     </div>
 
@@ -160,7 +179,7 @@ Tools: Reels Cover Prompt, Script Video, & Caption
     </div>
 
     <script>
-        // Data Template Judul per Tema (Gaya Bu Nur: Angka + Kata Hipnotis)
+        // Data Template Judul per Tema
         const templates = {
             "3iReborn": [
                 "3 Syarat Join di 3iReborn yang Wajib Diketahui!",
@@ -199,14 +218,12 @@ Tools: Reels Cover Prompt, Script Video, & Caption
             ]
         };
 
-        // Inisialisasi awal
         window.onload = function () {
             updateTemplates();
             const savedKey = localStorage.getItem("npa_reels_api_key");
             if (savedKey) document.getElementById("apiKey").value = savedKey;
         };
 
-        // Update Dropdown Template saat Tema dipilih
         function updateTemplates() {
             const theme = document.getElementById("theme").value;
             const selectTemplate = document.getElementById("templateTitle");
@@ -227,7 +244,6 @@ Tools: Reels Cover Prompt, Script Video, & Caption
                     option.text = title;
                     selectTemplate.appendChild(option);
                 });
-                // Tambah opsi custom di bawahnya
                 let optionCustom = document.createElement("option");
                 optionCustom.value = "Custom";
                 optionCustom.text = "✍️ Buat Judul Sendiri...";
@@ -235,7 +251,6 @@ Tools: Reels Cover Prompt, Script Video, & Caption
             }
         }
 
-        // Handle pilihan custom di dropdown judul
         document.getElementById("templateTitle").addEventListener("change", function() {
             if(this.value === "Custom") {
                 this.classList.add("hidden");
@@ -268,7 +283,6 @@ Tools: Reels Cover Prompt, Script Video, & Caption
             const expression = document.getElementById('expression').value;
             const videoFormat = document.getElementById('videoFormat').value;
             
-            // Ambil Judul Final
             let finalTitle = "";
             if (theme === "Custom") {
                 finalTitle = document.getElementById('customTitle').value.trim();
@@ -290,12 +304,10 @@ Tools: Reels Cover Prompt, Script Video, & Caption
 
             localStorage.setItem("npa_reels_api_key", apiKey);
 
-            // Tampilkan Loading
             const loadingModal = document.getElementById('loadingModal');
             loadingModal.classList.remove('hidden');
             loadingModal.classList.add('flex');
 
-            // SISTEM PROMPT SAKTI
             const promptText = `Anda adalah Ahli Copywriting, Content Creator FB Pro, dan AI Prompter tingkat dewa.
             Analisa gambar referensi yang dilampirkan. Buatkan konten khusus Facebook Reels berdasarkan:
             - Tema Bisnis: ${theme}
@@ -304,11 +316,14 @@ Tools: Reels Cover Prompt, Script Video, & Caption
             - Format Video: ${videoFormat}
             - Gaya Bahasa: Santai, sopan, bersahabat, namun tetap dewasa dan berwibawa (membangun trust).
 
-            BALAS HANYA DENGAN JSON VALID TANPA FORMAT MARKDOWN LAIN:
+            BALAS HANYA DENGAN JSON VALID. 
+            PERINGATAN KERAS: Semua nilai/value di dalam JSON WAJIB berupa TEKS BIASA (STRING). Jangan gunakan array [] atau object {} di dalam nilainya. Gunakan \\n untuk garis baru (enter).
+
+            Format JSON:
             {
-                "prompt": "Buatkan instruksi Prompt Gambar AI untuk membuat Foto Sampul Reels. Syarat mutlak: Aspek rasio 9:16 (portrait). Jadikan gambar yang dilampirkan sebagai referensi utama bentuk wajah karakter. Background harus sedikit blur/bokeh. Model harus berekspresi '${expression}'. Di area aman (tengah agak ke atas), letakkan teks tipografi 3D Bold Gradient tebal bertuliskan persis judul ini: '${finalTitle}'.",
-                "script": "Buatkan Naskah / Script Video lengkap sesuai format ${videoFormat}. Pecah menjadi scene-scene (8-10 detik per scene). Wajib mengikuti alur: HOOK (Pancingan awal yang kuat) -> MASALAH (Aduk emosi/kendala audiens) -> SOLUSI (Penjabaran poin-poin dari judul yang relevan dengan bisnis) -> CTA (Ajak aksi seperti komen, klik link, atau DM). Tuliskan juga instruksi visual (apa yang tampil di layar) dan VO (apa yang harus diucapkan). Gaya bahasa: Santai, sopan, berwibawa.",
-                "caption": "Buatkan Caption Facebook yang panjangnya proporsional. Struktur wajib: HOOK -> MASALAH -> SOLUSI -> CTA. Gunakan gaya bahasa santai namun berwibawa. Beri jarak enter (spasi) antar paragraf agar mudah dibaca. Akhiri dengan 5-8 hashtag yang sangat relevan dengan ${theme} dan Facebook Pro."
+                "prompt": "Buatkan instruksi Prompt Gambar AI untuk membuat Foto Sampul Reels. Syarat mutlak: Aspek rasio 9:16 (portrait). Jadikan gambar referensi sebagai patokan utama. Model berekspresi '${expression}'. Di area aman (tengah agak ke atas), letakkan teks tipografi 3D Bold Gradient tebal bertuliskan persis judul ini: '${finalTitle}'. Tuliskan sebagai 1 paragraf string.",
+                "script": "Naskah Video H-M-S-CTA (${videoFormat}). Tuliskan semua naskah dan instruksi scene dalam 1 STRING TEKS PANJANG. Gunakan karakter \\n untuk memisahkan baris antar scene. Dilarang keras menggunakan format Array.",
+                "caption": "Buatkan Caption Facebook (H-M-S-CTA) bergaya santai tapi berwibawa. Tuliskan sebagai 1 STRING TEKS PANJANG."
             }`;
 
             try {
@@ -329,8 +344,13 @@ Tools: Reels Cover Prompt, Script Video, & Caption
                 let rawText = data.candidates[0].content.parts[0].text.replace(/\`\`\`json/g, '').replace(/\`\`\`/g, '').trim();
                 const resultJSON = JSON.parse(rawText);
 
+                let scriptOutput = resultJSON.script;
+                if (typeof scriptOutput === 'object') {
+                    scriptOutput = JSON.stringify(scriptOutput, null, 2);
+                }
+
                 document.getElementById('outputPrompt').value = resultJSON.prompt;
-                document.getElementById('outputScript').value = resultJSON.script;
+                document.getElementById('outputScript').value = scriptOutput;
                 document.getElementById('outputCaption').value = resultJSON.caption;
                 
             } catch (e) { 
@@ -338,8 +358,6 @@ Tools: Reels Cover Prompt, Script Video, & Caption
             } finally { 
                 loadingModal.classList.remove('flex');
                 loadingModal.classList.add('hidden');
-                
-                // Scroll halus
                 document.getElementById("outputSection").scrollIntoView({ behavior: 'smooth' });
             }
         }
