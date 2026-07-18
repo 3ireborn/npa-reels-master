@@ -1,6 +1,6 @@
 <!--
 ═══════════════════════════════════════════════════════════════
-🚀 NPA REELS MASTER V1.2
+🚀 NPA REELS MASTER V1.3
 Special Project for 3iReborn & Nganggur Preneur Akademi
 Tools: Reels Cover Prompt, Script Video, & Caption
 ═══════════════════════════════════════════════════════════════
@@ -13,9 +13,9 @@ Tools: Reels Cover Prompt, Script Video, & Caption
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
     
-    <title>🚀 NPA REELS MASTER V1.2</title>
+    <title>🚀 NPA REELS MASTER V1.3</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
     
     <style>
@@ -30,7 +30,7 @@ Tools: Reels Cover Prompt, Script Video, & Caption
     <div class="max-w-6xl mx-auto mb-8 text-center">
         <div class="inline-block px-4 py-1 rounded-full bg-blue-900/50 border border-blue-500 text-blue-300 text-xs font-bold tracking-widest mb-3">NPA EXCLUSIVE TOOL</div>
         <h1 class="text-4xl md:text-5xl font-black uppercase text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-600 tracking-tight">REELS MASTER</h1>
-        <p class="text-slate-400 mt-2 font-medium">Auto-Generate Cover Reels 9:16, Script Video, & Caption H-M-S-CTA</p>
+        <p class="text-slate-400 mt-2 font-medium text-sm md:text-base">Auto-Generate Cover Reels 9:16, Script Video, & Caption</p>
     </div>
 
     <!-- MAIN DASHBOARD -->
@@ -44,7 +44,7 @@ Tools: Reels Cover Prompt, Script Video, & Caption
                 <div class="mb-5">
                     <div class="flex justify-between items-end mb-2">
                         <label class="text-xs font-bold text-slate-400 uppercase tracking-wider block">🔑 1. API Key Gemini</label>
-                        <a href="https://aistudio.google.com/app/apikey" target="_blank" class="text-[10px] bg-red-600 hover:bg-red-500 text-white font-bold px-3 py-1.5 rounded-lg shadow-lg transition-all animate-pulse"><i class="fa-solid fa-key mr-1"></i> Buat API Gratis Di Sini</a>
+                        <a href="https://aistudio.google.com/app/apikey" target="_blank" class="text-[10px] bg-red-600 hover:bg-red-500 text-white font-bold px-3 py-1.5 rounded-lg shadow-lg transition-all animate-pulse"><i class="fa-solid fa-key mr-1"></i> Buat API Gratis</a>
                     </div>
                     <input type="password" id="apiKey" placeholder="Paste API Key..." class="w-full bg-slate-800 border border-slate-700 rounded-xl px-4 py-3 text-sm focus:border-cyan-500 outline-none transition-all">
                 </div>
@@ -122,7 +122,7 @@ Tools: Reels Cover Prompt, Script Video, & Caption
                 <div class="absolute top-0 right-0 w-32 h-32 bg-cyan-500/10 rounded-full blur-3xl"></div>
                 <div class="flex justify-between items-center mb-4">
                     <h2 class="text-xl font-bold text-cyan-400"><i class="fa-solid fa-image mr-2"></i> Prompt Foto Sampul (Rasio 9:16)</h2>
-                    <button onclick="copyTeks('outputPrompt')" class="bg-slate-800 hover:bg-slate-700 text-white text-xs px-4 py-2 rounded-lg font-bold transition">COPY</button>
+                    <button onclick="copyTeks('outputPrompt')" class="bg-slate-800 hover:bg-slate-700 text-white text-xs px-4 py-2 rounded-lg font-bold transition focus:ring-2 focus:ring-cyan-500">COPY</button>
                 </div>
                 <textarea id="outputPrompt" rows="4" class="w-full bg-slate-950 border border-slate-800 rounded-xl p-4 text-sm text-cyan-200 outline-none resize-none leading-relaxed" placeholder="Prompt AI akan muncul di sini..."></textarea>
             </div>
@@ -132,7 +132,7 @@ Tools: Reels Cover Prompt, Script Video, & Caption
                 <div class="absolute top-0 right-0 w-32 h-32 bg-yellow-500/10 rounded-full blur-3xl"></div>
                 <div class="flex justify-between items-center mb-4">
                     <h2 class="text-xl font-bold text-yellow-400"><i class="fa-solid fa-video mr-2"></i> Script Video (Pola H-M-S-CTA)</h2>
-                    <button onclick="copyTeks('outputScript')" class="bg-slate-800 hover:bg-slate-700 text-white text-xs px-4 py-2 rounded-lg font-bold transition">COPY</button>
+                    <button onclick="copyTeks('outputScript')" class="bg-slate-800 hover:bg-slate-700 text-white text-xs px-4 py-2 rounded-lg font-bold transition focus:ring-2 focus:ring-yellow-500">COPY</button>
                 </div>
                 <textarea id="outputScript" rows="12" class="w-full bg-slate-950 border border-slate-800 rounded-xl p-4 text-sm text-yellow-100 outline-none resize-none leading-relaxed" placeholder="Naskah lengkap per scene akan muncul di sini..."></textarea>
             </div>
@@ -142,7 +142,7 @@ Tools: Reels Cover Prompt, Script Video, & Caption
                 <div class="absolute top-0 right-0 w-32 h-32 bg-pink-500/10 rounded-full blur-3xl"></div>
                 <div class="flex justify-between items-center mb-4">
                     <h2 class="text-xl font-bold text-pink-400"><i class="fa-solid fa-pen-nib mr-2"></i> Caption Facebook Pro</h2>
-                    <button onclick="copyTeks('outputCaption')" class="bg-slate-800 hover:bg-slate-700 text-white text-xs px-4 py-2 rounded-lg font-bold transition">COPY</button>
+                    <button onclick="copyTeks('outputCaption')" class="bg-slate-800 hover:bg-slate-700 text-white text-xs px-4 py-2 rounded-lg font-bold transition focus:ring-2 focus:ring-pink-500">COPY</button>
                 </div>
                 <textarea id="outputCaption" rows="8" class="w-full bg-slate-950 border border-slate-800 rounded-xl p-4 text-sm text-pink-100 outline-none resize-none leading-relaxed" placeholder="Caption panjang untuk FB akan muncul di sini..."></textarea>
             </div>
@@ -152,17 +152,19 @@ Tools: Reels Cover Prompt, Script Video, & Caption
 
     <!-- EDUKASI & CLOSING FOOTER -->
     <div class="max-w-6xl mx-auto mt-12 mb-8 border-t border-slate-800 pt-8 text-center px-4">
-        <h3 class="text-lg font-bold text-slate-300 mb-3"><i class="fa-solid fa-shield-halved text-cyan-500 mr-2"></i>Kenapa Harus Memakai API Key Gemini Sendiri?</h3>
-        <p class="text-sm text-slate-400 leading-relaxed max-w-3xl mx-auto mb-8">
+        <h3 class="text-base font-bold text-slate-300 mb-3"><i class="fa-solid fa-shield-halved text-cyan-500 mr-2"></i>Kenapa Harus Memakai API Key Gemini Sendiri?</h3>
+        <p class="text-xs text-slate-400 leading-relaxed max-w-3xl mx-auto mb-6">
             API Key ibarat <strong>"Kunci Akses Pribadi"</strong> untuk menyambungkan aplikasi ini langsung ke superkomputer AI Google. Dengan menggunakan API Key buatan Anda sendiri, aplikasi ini beroperasi 100% secara lokal di browser HP/Laptop Anda. Artinya, <strong>privasi foto wajah dan data bisnis Anda aman tak tersentuh</strong>, dan yang paling penting: Anda bisa menikmati teknologi sekelas agensi digital ini secara <strong>GRATIS</strong> tanpa harus bayar biaya langganan server bulanan.
         </p>
         
-        <!-- PRASASTI CLOSING STATEMENT -->
-        <div class="mt-10 border-t border-slate-700/50 pt-10 max-w-2xl mx-auto space-y-3">
-            <p class="text-xl font-black text-pink-500 tracking-wide">Salam Penuh Cinta 💞💞💞 Dari NPA Smart System VVIP</p>
-            <p class="text-lg font-bold text-cyan-400 uppercase tracking-widest">Semangat Menembus Batas Kemustahilan 🚀</p>
-            <p class="text-sm text-slate-500 pt-4 font-semibold">Copyright @npa smart system</p>
-            <p class="text-sm text-blue-400 font-bold tracking-wider">#3ireborn #NganggurAjaBisa #DisabilitasPunyaKarya</p>
+        <!-- PRASASTI CLOSING STATEMENT (UKURAN DISCLAIMER) -->
+        <div class="mt-8 border-t border-slate-800/50 pt-6 max-w-2xl mx-auto">
+            <p class="text-xs text-slate-400 leading-relaxed font-medium">
+                <span class="text-pink-400 font-semibold">Salam Penuh Cinta 💞💞💞 Dari NPA Smart System VVIP</span><br>
+                <span class="text-cyan-500 font-bold tracking-wider uppercase">Semangat Menembus Batas Kemustahilan 🚀</span><br>
+                <span class="text-slate-500 mt-1 block">Copyright @npa smart system</span>
+                <span class="text-blue-500 font-semibold">#3ireborn #NganggurAjaBisa #DisabilitasPunyaKarya</span>
+            </p>
         </div>
     </div>
 
@@ -270,11 +272,37 @@ Tools: Reels Cover Prompt, Script Video, & Caption
             reader.readAsDataURL(file);
         }
 
+        // MESIN COPY MODERN (Bypass Blokir Android Browser)
         function copyTeks(id) { 
-            const textToCopy = document.getElementById(id);
-            textToCopy.select(); 
-            document.execCommand('copy'); 
-            alert("Berhasil disalin, Komandan! 🫡"); 
+            const textEl = document.getElementById(id);
+            if (!textEl || textEl.value.trim() === "") {
+                alert("Kotak masih kosong, Ndan! Belum ada yang bisa di-copy. 🫡");
+                return;
+            }
+            
+            // Coba metode modern (Clipboard API)
+            if (navigator.clipboard && window.isSecureContext) {
+                navigator.clipboard.writeText(textEl.value).then(() => {
+                    alert("Berhasil disalin ke memori HP, Komandan! 🫡");
+                }).catch(err => {
+                    // Fallback jadul jika gagal
+                    fallbackCopyText(textEl);
+                });
+            } else {
+                // Fallback jadul
+                fallbackCopyText(textEl);
+            }
+        }
+
+        function fallbackCopyText(textEl) {
+            textEl.select();
+            textEl.setSelectionRange(0, 99999); // Khusus HP
+            try {
+                document.execCommand('copy');
+                alert("Berhasil disalin ke memori HP, Komandan! 🫡");
+            } catch (err) {
+                alert("Waduh, HP Ndan memblokir fungsi copy otomatis. Silakan blok teks dan copy manual ya Ndan! 🙏");
+            }
         }
 
         async function prosesGenerate() {
