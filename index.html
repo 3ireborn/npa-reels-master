@@ -1,6 +1,6 @@
 <!--
 ═══════════════════════════════════════════════════════════════
-🚀 NPA REELS MASTER V1.3
+🚀 NPA REELS MASTER V1.4
 Special Project for 3iReborn & Nganggur Preneur Akademi
 Tools: Reels Cover Prompt, Script Video, & Caption
 ═══════════════════════════════════════════════════════════════
@@ -13,7 +13,7 @@ Tools: Reels Cover Prompt, Script Video, & Caption
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
     
-    <title>🚀 NPA REELS MASTER V1.3</title>
+    <title>🚀 NPA REELS MASTER V1.4</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
@@ -122,7 +122,7 @@ Tools: Reels Cover Prompt, Script Video, & Caption
                 <div class="absolute top-0 right-0 w-32 h-32 bg-cyan-500/10 rounded-full blur-3xl"></div>
                 <div class="flex justify-between items-center mb-4">
                     <h2 class="text-xl font-bold text-cyan-400"><i class="fa-solid fa-image mr-2"></i> Prompt Foto Sampul (Rasio 9:16)</h2>
-                    <button onclick="copyTeks('outputPrompt')" class="bg-slate-800 hover:bg-slate-700 text-white text-xs px-4 py-2 rounded-lg font-bold transition focus:ring-2 focus:ring-cyan-500">COPY</button>
+                    <button onclick="copyTeks('outputPrompt', this)" class="bg-slate-800 hover:bg-slate-700 text-white text-xs px-4 py-2 rounded-lg font-bold transition">COPY</button>
                 </div>
                 <textarea id="outputPrompt" rows="4" class="w-full bg-slate-950 border border-slate-800 rounded-xl p-4 text-sm text-cyan-200 outline-none resize-none leading-relaxed" placeholder="Prompt AI akan muncul di sini..."></textarea>
             </div>
@@ -132,7 +132,7 @@ Tools: Reels Cover Prompt, Script Video, & Caption
                 <div class="absolute top-0 right-0 w-32 h-32 bg-yellow-500/10 rounded-full blur-3xl"></div>
                 <div class="flex justify-between items-center mb-4">
                     <h2 class="text-xl font-bold text-yellow-400"><i class="fa-solid fa-video mr-2"></i> Script Video (Pola H-M-S-CTA)</h2>
-                    <button onclick="copyTeks('outputScript')" class="bg-slate-800 hover:bg-slate-700 text-white text-xs px-4 py-2 rounded-lg font-bold transition focus:ring-2 focus:ring-yellow-500">COPY</button>
+                    <button onclick="copyTeks('outputScript', this)" class="bg-slate-800 hover:bg-slate-700 text-white text-xs px-4 py-2 rounded-lg font-bold transition">COPY</button>
                 </div>
                 <textarea id="outputScript" rows="12" class="w-full bg-slate-950 border border-slate-800 rounded-xl p-4 text-sm text-yellow-100 outline-none resize-none leading-relaxed" placeholder="Naskah lengkap per scene akan muncul di sini..."></textarea>
             </div>
@@ -142,7 +142,7 @@ Tools: Reels Cover Prompt, Script Video, & Caption
                 <div class="absolute top-0 right-0 w-32 h-32 bg-pink-500/10 rounded-full blur-3xl"></div>
                 <div class="flex justify-between items-center mb-4">
                     <h2 class="text-xl font-bold text-pink-400"><i class="fa-solid fa-pen-nib mr-2"></i> Caption Facebook Pro</h2>
-                    <button onclick="copyTeks('outputCaption')" class="bg-slate-800 hover:bg-slate-700 text-white text-xs px-4 py-2 rounded-lg font-bold transition focus:ring-2 focus:ring-pink-500">COPY</button>
+                    <button onclick="copyTeks('outputCaption', this)" class="bg-slate-800 hover:bg-slate-700 text-white text-xs px-4 py-2 rounded-lg font-bold transition">COPY</button>
                 </div>
                 <textarea id="outputCaption" rows="8" class="w-full bg-slate-950 border border-slate-800 rounded-xl p-4 text-sm text-pink-100 outline-none resize-none leading-relaxed" placeholder="Caption panjang untuk FB akan muncul di sini..."></textarea>
             </div>
@@ -272,37 +272,52 @@ Tools: Reels Cover Prompt, Script Video, & Caption
             reader.readAsDataURL(file);
         }
 
-        // MESIN COPY MODERN (Bypass Blokir Android Browser)
-        function copyTeks(id) { 
+        // MESIN COPY VISUAL (Tanpa Alert, Warna Tombol Jadi Hijau)
+        function copyTeks(id, btnElement) { 
             const textEl = document.getElementById(id);
             if (!textEl || textEl.value.trim() === "") {
-                alert("Kotak masih kosong, Ndan! Belum ada yang bisa di-copy. 🫡");
-                return;
+                return; // Jangan lakukan apa-apa jika teks kosong
             }
             
-            // Coba metode modern (Clipboard API)
+            // Simpan wujud asli tombol
+            const originalText = btnElement.innerHTML;
+            const originalClasses = btnElement.className;
+
+            // Fungsi untuk mengubah tombol jadi HIJAU "COPIED"
+            const triggerSuccess = () => {
+                btnElement.innerHTML = '<i class="fa-solid fa-check mr-1"></i> COPIED';
+                btnElement.className = "bg-green-600 hover:bg-green-500 text-white text-xs px-4 py-2 rounded-lg font-bold transition shadow-[0_0_15px_rgba(22,163,74,0.6)]";
+                
+                // Kembalikan ke tombol asli setelah 2 detik
+                setTimeout(() => {
+                    btnElement.innerHTML = originalText;
+                    btnElement.className = originalClasses;
+                }, 2000);
+            };
+
+            // Proses Copy ke Clipboard
             if (navigator.clipboard && window.isSecureContext) {
                 navigator.clipboard.writeText(textEl.value).then(() => {
-                    alert("Berhasil disalin ke memori HP, Komandan! 🫡");
+                    triggerSuccess();
                 }).catch(err => {
-                    // Fallback jadul jika gagal
-                    fallbackCopyText(textEl);
+                    fallbackCopyText(textEl, triggerSuccess);
                 });
             } else {
-                // Fallback jadul
-                fallbackCopyText(textEl);
+                fallbackCopyText(textEl, triggerSuccess);
             }
         }
 
-        function fallbackCopyText(textEl) {
+        function fallbackCopyText(textEl, successCallback) {
             textEl.select();
-            textEl.setSelectionRange(0, 99999); // Khusus HP
+            textEl.setSelectionRange(0, 99999);
             try {
                 document.execCommand('copy');
-                alert("Berhasil disalin ke memori HP, Komandan! 🫡");
+                successCallback();
             } catch (err) {
-                alert("Waduh, HP Ndan memblokir fungsi copy otomatis. Silakan blok teks dan copy manual ya Ndan! 🙏");
+                console.error('Fallback copy error:', err);
             }
+            // Hilangkan blok seleksi teks setelah tercopy
+            window.getSelection().removeAllRanges();
         }
 
         async function prosesGenerate() {
@@ -324,10 +339,12 @@ Tools: Reels Cover Prompt, Script Video, & Caption
             }
             
             if (!apiKey || !globalBase64Image) {
-                return alert("Komandan! Pastikan API Key diisi dan Foto Referensi sudah di-upload! 🫡");
+                alert("Komandan! Pastikan API Key diisi dan Foto Referensi sudah di-upload! 🫡");
+                return;
             }
             if (!finalTitle) {
-                return alert("Tolong ketik atau pilih Judulnya dulu Ndan! 🫡");
+                alert("Tolong ketik atau pilih Judulnya dulu Ndan! 🫡");
+                return;
             }
 
             localStorage.setItem("npa_reels_api_key", apiKey);
