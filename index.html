@@ -1,9 +1,9 @@
 <!--
 ═══════════════════════════════════════════════════════════════
-🚀 NPA REELS MASTER V2.2
+🚀 NPA REELS MASTER V2.3
 Special Project for 3iReborn & Nganggur Preneur Akademi
 Tools: Reels Cover Prompt, Script Video, & Caption
-Update: Sibling's Collaboration Copy Engine + 15 Stop-Scroll Hooks
+Update: Added Aspect Ratio Selector & 15 Stop-Scroll Hooks
 ═══════════════════════════════════════════════════════════════
 -->
 
@@ -14,7 +14,7 @@ Update: Sibling's Collaboration Copy Engine + 15 Stop-Scroll Hooks
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
     
-    <title>🚀 NPA REELS MASTER V2.2</title>
+    <title>🚀 NPA REELS MASTER V2.3</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
@@ -31,7 +31,7 @@ Update: Sibling's Collaboration Copy Engine + 15 Stop-Scroll Hooks
     <div id="loadingScreen" class="fixed inset-0 z-[100] flex flex-col items-center justify-center bg-slate-950 transition-opacity duration-700">
         <div class="text-7xl mb-6 animate-bounce">🚀</div>
         <h1 class="text-3xl font-black tracking-wide text-center uppercase text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-600">NPA REELS MASTER</h1>
-        <p class="text-xl font-bold text-pink-500 mt-2">V2.2 Ultimate Copy</p>
+        <p class="text-xl font-bold text-pink-500 mt-2">V2.3 Ultimate Copy</p>
         <p class="mt-4 text-slate-400 text-sm">Powered by</p>
         <h2 class="text-lg font-bold text-cyan-400 tracking-widest">NPA SMART SYSTEM VVIP</h2>
         <div class="mt-8 w-64 h-2 rounded-full bg-slate-800 overflow-hidden shadow-[0_0_15px_rgba(6,182,212,0.4)]">
@@ -43,7 +43,7 @@ Update: Sibling's Collaboration Copy Engine + 15 Stop-Scroll Hooks
     <div class="max-w-6xl mx-auto mb-8 text-center mt-4">
         <div class="inline-block px-4 py-1 rounded-full bg-blue-900/50 border border-blue-500 text-blue-300 text-xs font-bold tracking-widest mb-3">NPA EXCLUSIVE TOOL</div>
         <h1 class="text-4xl md:text-5xl font-black uppercase text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-600 tracking-tight">REELS MASTER</h1>
-        <p class="text-slate-400 mt-2 font-medium text-sm md:text-base">Auto-Generate Cover Reels 9:16, Script Video, & Caption</p>
+        <p class="text-slate-400 mt-2 font-medium text-sm md:text-base">Auto-Generate Cover Reels, Script Video, & Caption</p>
     </div>
 
     <!-- MAIN DASHBOARD -->
@@ -115,9 +115,20 @@ Update: Sibling's Collaboration Copy Engine + 15 Stop-Scroll Hooks
                         </select>
                     </div>
 
+                    <!-- ASPEK RASIO BARU -->
+                    <div>
+                        <label class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-2 block">📏 6. Aspek Rasio (Ukuran Foto)</label>
+                        <select id="aspectRatio" class="w-full bg-slate-800 border border-slate-700 rounded-xl px-4 py-3 text-sm focus:border-cyan-500 outline-none text-purple-400 font-semibold">
+                            <option value="9:16 (Portrait Vertikal)">📱 9:16 (Reels / TikTok / Shorts)</option>
+                            <option value="1:1 (Square)">⬛ 1:1 (Feed FB / Instagram Square)</option>
+                            <option value="4:5 (Portrait Pendek)">🖼️ 4:5 (Feed FB / Instagram Portrait)</option>
+                            <option value="16:9 (Landscape)">💻 16:9 (YouTube / Banner Web)</option>
+                        </select>
+                    </div>
+
                     <!-- Format Video -->
                     <div>
-                        <label class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-2 block">🎬 6. Format Video</label>
+                        <label class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-2 block">🎬 7. Format Video</label>
                         <select id="videoFormat" class="w-full bg-slate-800 border border-slate-700 rounded-xl px-4 py-3 text-sm focus:border-cyan-500 outline-none text-emerald-400">
                             <option value="3 Scene (Masing-masing 8-10 Detik)">Pendek - 3 Scene (Total ~30 Detik)</option>
                             <option value="5 Scene (Masing-masing 8-10 Detik)">Panjang - 5 Scene (Total ~50 Detik)</option>
@@ -139,7 +150,7 @@ Update: Sibling's Collaboration Copy Engine + 15 Stop-Scroll Hooks
             <div class="bg-slate-900/80 backdrop-blur-xl border border-slate-800 rounded-3xl p-6 shadow-2xl relative overflow-hidden">
                 <div class="absolute top-0 right-0 w-32 h-32 bg-cyan-500/10 rounded-full blur-3xl"></div>
                 <div class="flex justify-between items-center mb-4">
-                    <h2 class="text-xl font-bold text-cyan-400"><i class="fa-solid fa-image mr-2"></i> Prompt Foto Sampul (Rasio 9:16)</h2>
+                    <h2 class="text-xl font-bold text-cyan-400"><i class="fa-solid fa-image mr-2"></i> Prompt Foto Sampul AI</h2>
                     <button onclick="copyTeks('outputPrompt')" class="bg-slate-800 hover:bg-slate-700 text-white text-xs px-4 py-2 rounded-lg font-bold transition focus:ring-2 focus:ring-cyan-500">SALIN TEKS</button>
                 </div>
                 <textarea id="outputPrompt" rows="4" class="w-full bg-slate-950 border border-slate-800 rounded-xl p-4 text-sm text-cyan-200 outline-none resize-none leading-relaxed" placeholder="Prompt AI akan muncul di sini..." readonly></textarea>
@@ -199,7 +210,7 @@ Update: Sibling's Collaboration Copy Engine + 15 Stop-Scroll Hooks
     </div>
 
     <script>
-        // Data Template Judul per Tema (UPGRADED DENGAN 15 HOOK STOP-SCROLL)
+        // Data Template Judul per Tema
         const templates = {
             "3iReborn": [
                 "3iReborn Hack: Cukup 7 Hari Merubah Dinding FB Jadi Mesin Pencetak Closing.",
@@ -312,18 +323,16 @@ Update: Sibling's Collaboration Copy Engine + 15 Stop-Scroll Hooks
         }
 
         // ==========================================
-        // 🚀 MESIN COPY 100% FB PRO (SUPER MURNI - UPGRADED BY SIBLING)
+        // 🚀 MESIN COPY 100% FB PRO
         // ==========================================
         function copyTeks(id) { 
             var textToCopy = document.getElementById(id);
             
-            // Cek kalau kotak kosong
             if (!textToCopy || textToCopy.value.trim() === "") {
                 alert("Belum ada teks yang bisa disalin, Komandan! 🫡");
                 return;
             }
 
-            // Metode 1: API Clipboard Modern (Paling direkomendasikan untuk HP)
             if (navigator.clipboard && window.isSecureContext) {
                 navigator.clipboard.writeText(textToCopy.value).then(function() {
                     alert("Berhasil disalin ke memori HP, Komandan! 🫡");
@@ -331,15 +340,13 @@ Update: Sibling's Collaboration Copy Engine + 15 Stop-Scroll Hooks
                     fallbackCopyText(textToCopy);
                 });
             } else {
-                // Metode 2: Cadangan jika browser jadul
                 fallbackCopyText(textToCopy);
             }
         }
 
-        // Fungsi Cadangan
         function fallbackCopyText(textAreaElement) {
             textAreaElement.select();
-            textAreaElement.setSelectionRange(0, 99999); // Khusus HP
+            textAreaElement.setSelectionRange(0, 99999); 
             try {
                 document.execCommand('copy');
                 alert("Berhasil disalin ke memori HP, Komandan! 🫡");
@@ -354,6 +361,7 @@ Update: Sibling's Collaboration Copy Engine + 15 Stop-Scroll Hooks
             const apiKey = document.getElementById('apiKey').value.trim();
             const theme = document.getElementById('theme').value;
             const expression = document.getElementById('expression').value;
+            const aspectRatio = document.getElementById('aspectRatio').value; // Mengambil nilai rasio
             const videoFormat = document.getElementById('videoFormat').value;
             
             let finalTitle = "";
@@ -388,6 +396,7 @@ Update: Sibling's Collaboration Copy Engine + 15 Stop-Scroll Hooks
             - Tema Bisnis: ${theme}
             - Judul Utama: "${finalTitle}"
             - Ekspresi Model: ${expression}
+            - Aspek Rasio: ${aspectRatio}
             - Format Video: ${videoFormat}
             - Gaya Bahasa: Santai, sopan, bersahabat, namun tetap dewasa dan berwibawa (membangun trust).
 
@@ -396,7 +405,7 @@ Update: Sibling's Collaboration Copy Engine + 15 Stop-Scroll Hooks
 
             Format JSON:
             {
-                "prompt": "Buatkan instruksi Prompt Gambar AI untuk membuat Foto Sampul Reels. Syarat mutlak: Aspek rasio 9:16 (portrait). Jadikan gambar referensi sebagai patokan utama. Model berekspresi '${expression}'. Di area aman (tengah agak ke atas), letakkan teks tipografi 3D Bold Gradient tebal bertuliskan persis judul ini: '${finalTitle}'. Tuliskan sebagai 1 paragraf string.",
+                "prompt": "Buatkan instruksi Prompt Gambar AI untuk membuat Foto Sampul. Syarat mutlak: Aspek rasio ${aspectRatio}. Jadikan gambar referensi sebagai patokan utama. Model berekspresi '${expression}'. Di area aman (tengah agak ke atas), letakkan teks tipografi 3D Bold Gradient tebal bertuliskan persis judul ini: '${finalTitle}'. Tuliskan sebagai 1 paragraf string.",
                 "script": "Naskah Video H-M-S-CTA (${videoFormat}). Tuliskan semua naskah dan instruksi scene dalam 1 STRING TEKS PANJANG. Gunakan karakter \\n untuk memisahkan baris antar scene. Dilarang keras menggunakan format Array.",
                 "caption": "Buatkan Caption Facebook (H-M-S-CTA) bergaya santai tapi berwibawa. Tuliskan sebagai 1 STRING TEKS PANJANG."
             }`;
