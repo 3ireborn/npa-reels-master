@@ -1,9 +1,9 @@
 <!--
 ═══════════════════════════════════════════════════════════════
-🚀 NPA REELS MASTER V2.3
+🚀 NPA REELS MASTER V2.4
 Special Project for 3iReborn & Nganggur Preneur Akademi
 Tools: Reels Cover Prompt, Script Video, & Caption
-Update: Added Aspect Ratio Selector & 15 Stop-Scroll Hooks
+Update: Added Aspect Ratio, 15 Hooks, & Caption Copywriting Styles
 ═══════════════════════════════════════════════════════════════
 -->
 
@@ -14,7 +14,7 @@ Update: Added Aspect Ratio Selector & 15 Stop-Scroll Hooks
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
     
-    <title>🚀 NPA REELS MASTER V2.3</title>
+    <title>🚀 NPA REELS MASTER V2.4</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
@@ -31,7 +31,7 @@ Update: Added Aspect Ratio Selector & 15 Stop-Scroll Hooks
     <div id="loadingScreen" class="fixed inset-0 z-[100] flex flex-col items-center justify-center bg-slate-950 transition-opacity duration-700">
         <div class="text-7xl mb-6 animate-bounce">🚀</div>
         <h1 class="text-3xl font-black tracking-wide text-center uppercase text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-600">NPA REELS MASTER</h1>
-        <p class="text-xl font-bold text-pink-500 mt-2">V2.3 Ultimate Copy</p>
+        <p class="text-xl font-bold text-pink-500 mt-2">V2.4 Ultimate Copy</p>
         <p class="mt-4 text-slate-400 text-sm">Powered by</p>
         <h2 class="text-lg font-bold text-cyan-400 tracking-widest">NPA SMART SYSTEM VVIP</h2>
         <div class="mt-8 w-64 h-2 rounded-full bg-slate-800 overflow-hidden shadow-[0_0_15px_rgba(6,182,212,0.4)]">
@@ -43,7 +43,7 @@ Update: Added Aspect Ratio Selector & 15 Stop-Scroll Hooks
     <div class="max-w-6xl mx-auto mb-8 text-center mt-4">
         <div class="inline-block px-4 py-1 rounded-full bg-blue-900/50 border border-blue-500 text-blue-300 text-xs font-bold tracking-widest mb-3">NPA EXCLUSIVE TOOL</div>
         <h1 class="text-4xl md:text-5xl font-black uppercase text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-600 tracking-tight">REELS MASTER</h1>
-        <p class="text-slate-400 mt-2 font-medium text-sm md:text-base">Auto-Generate Cover Reels, Script Video, & Caption</p>
+        <p class="text-slate-400 mt-2 font-medium text-sm md:text-base">Auto-Generate Cover Reels, Script Video, & Caption Sakti</p>
     </div>
 
     <!-- MAIN DASHBOARD -->
@@ -115,7 +115,7 @@ Update: Added Aspect Ratio Selector & 15 Stop-Scroll Hooks
                         </select>
                     </div>
 
-                    <!-- ASPEK RASIO BARU -->
+                    <!-- ASPEK RASIO -->
                     <div>
                         <label class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-2 block">📏 6. Aspek Rasio (Ukuran Foto)</label>
                         <select id="aspectRatio" class="w-full bg-slate-800 border border-slate-700 rounded-xl px-4 py-3 text-sm focus:border-cyan-500 outline-none text-purple-400 font-semibold">
@@ -128,10 +128,21 @@ Update: Added Aspect Ratio Selector & 15 Stop-Scroll Hooks
 
                     <!-- Format Video -->
                     <div>
-                        <label class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-2 block">🎬 7. Format Video</label>
+                        <label class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-2 block">🎬 7. Format Script Video</label>
                         <select id="videoFormat" class="w-full bg-slate-800 border border-slate-700 rounded-xl px-4 py-3 text-sm focus:border-cyan-500 outline-none text-emerald-400">
                             <option value="3 Scene (Masing-masing 8-10 Detik)">Pendek - 3 Scene (Total ~30 Detik)</option>
                             <option value="5 Scene (Masing-masing 8-10 Detik)">Panjang - 5 Scene (Total ~50 Detik)</option>
+                        </select>
+                    </div>
+
+                    <!-- GAYA BAHASA CAPTION BARU 🔥 -->
+                    <div>
+                        <label class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-2 block">✍️ 8. Gaya Bahasa Caption</label>
+                        <select id="captionStyle" class="w-full bg-slate-800 border border-slate-700 rounded-xl px-4 py-3 text-sm focus:border-cyan-500 outline-none text-orange-400 font-bold">
+                            <option value="FOMO (Fear Of Missing Out - Mendesak)">🔥 FOMO (Bikin Takut Ketinggalan)</option>
+                            <option value="Pro & Kontra (Kontroversial - Memicu Debat)">⚡ PRO & KONTRA (Memicu Interaksi)</option>
+                            <option value="Hard Selling (Jualan Langsung - To The Point)">💰 HARD SELLING (Fokus Closing Cepat)</option>
+                            <option value="Edukasi (Informatif - Memberikan Solusi Logis)">📚 EDUKASI (Informatif & Solutif)</option>
                         </select>
                     </div>
                 </div>
@@ -170,7 +181,7 @@ Update: Added Aspect Ratio Selector & 15 Stop-Scroll Hooks
             <div class="bg-slate-900/80 backdrop-blur-xl border border-slate-800 rounded-3xl p-6 shadow-2xl relative overflow-hidden">
                 <div class="absolute top-0 right-0 w-32 h-32 bg-pink-500/10 rounded-full blur-3xl"></div>
                 <div class="flex justify-between items-center mb-4">
-                    <h2 class="text-xl font-bold text-pink-400"><i class="fa-solid fa-pen-nib mr-2"></i> Caption Facebook Pro</h2>
+                    <h2 class="text-xl font-bold text-pink-400"><i class="fa-solid fa-pen-nib mr-2"></i> Caption FB (Pendek, Padat, Jelas)</h2>
                     <button onclick="copyTeks('outputCaption')" class="bg-slate-800 hover:bg-slate-700 text-white text-xs px-4 py-2 rounded-lg font-bold transition focus:ring-2 focus:ring-pink-500">SALIN TEKS</button>
                 </div>
                 <textarea id="outputCaption" rows="8" class="w-full bg-slate-950 border border-slate-800 rounded-xl p-4 text-sm text-pink-100 outline-none resize-none leading-relaxed" placeholder="Caption panjang untuk FB akan muncul di sini..." readonly></textarea>
@@ -210,7 +221,7 @@ Update: Added Aspect Ratio Selector & 15 Stop-Scroll Hooks
     </div>
 
     <script>
-        // Data Template Judul per Tema
+        // Data Template Judul per Tema (UPGRADED DENGAN 15 HOOK STOP-SCROLL)
         const templates = {
             "3iReborn": [
                 "3iReborn Hack: Cukup 7 Hari Merubah Dinding FB Jadi Mesin Pencetak Closing.",
@@ -361,8 +372,9 @@ Update: Added Aspect Ratio Selector & 15 Stop-Scroll Hooks
             const apiKey = document.getElementById('apiKey').value.trim();
             const theme = document.getElementById('theme').value;
             const expression = document.getElementById('expression').value;
-            const aspectRatio = document.getElementById('aspectRatio').value; // Mengambil nilai rasio
+            const aspectRatio = document.getElementById('aspectRatio').value; 
             const videoFormat = document.getElementById('videoFormat').value;
+            const captionStyle = document.getElementById('captionStyle').value; // Mengambil gaya bahasa caption
             
             let finalTitle = "";
             if (theme === "Custom") {
@@ -398,7 +410,8 @@ Update: Added Aspect Ratio Selector & 15 Stop-Scroll Hooks
             - Ekspresi Model: ${expression}
             - Aspek Rasio: ${aspectRatio}
             - Format Video: ${videoFormat}
-            - Gaya Bahasa: Santai, sopan, bersahabat, namun tetap dewasa dan berwibawa (membangun trust).
+            - Gaya Bahasa Caption: ${captionStyle} (Pastikan caption pendek, padat, dan jelas).
+            - Pola Caption Wajib: Terapkan struktur HOOK - MASALAH - SOLUSI - CTA - HASHTAGS secara berurutan.
 
             BALAS HANYA DENGAN JSON VALID. 
             PERINGATAN KERAS: Semua nilai/value di dalam JSON WAJIB berupa TEKS BIASA (STRING). Jangan gunakan array [] atau object {} di dalam nilainya. Gunakan \\n untuk garis baru (enter).
@@ -407,7 +420,7 @@ Update: Added Aspect Ratio Selector & 15 Stop-Scroll Hooks
             {
                 "prompt": "Buatkan instruksi Prompt Gambar AI untuk membuat Foto Sampul. Syarat mutlak: Aspek rasio ${aspectRatio}. Jadikan gambar referensi sebagai patokan utama. Model berekspresi '${expression}'. Di area aman (tengah agak ke atas), letakkan teks tipografi 3D Bold Gradient tebal bertuliskan persis judul ini: '${finalTitle}'. Tuliskan sebagai 1 paragraf string.",
                 "script": "Naskah Video H-M-S-CTA (${videoFormat}). Tuliskan semua naskah dan instruksi scene dalam 1 STRING TEKS PANJANG. Gunakan karakter \\n untuk memisahkan baris antar scene. Dilarang keras menggunakan format Array.",
-                "caption": "Buatkan Caption Facebook (H-M-S-CTA) bergaya santai tapi berwibawa. Tuliskan sebagai 1 STRING TEKS PANJANG."
+                "caption": "Buatkan Caption Facebook dengan pola struktur yang diminta (HOOK - MASALAH - SOLUSI - CTA - HASHTAGS) dan menggunakan gaya bahasa: ${captionStyle}. HARUS DITULIS PENDEK, PADAT, DAN JELAS. Tuliskan sebagai 1 STRING TEKS PANJANG."
             }`;
 
             try {
