@@ -3,7 +3,7 @@
 🚀 NPA REELS MASTER V2.2
 Special Project for 3iReborn & Nganggur Preneur Akademi
 Tools: Reels Cover Prompt, Script Video, & Caption
-Update: Sibling's Collaboration Copy Engine (Modern + Fallback)
+Update: Sibling's Collaboration Copy Engine + 15 Stop-Scroll Hooks
 ═══════════════════════════════════════════════════════════════
 -->
 
@@ -92,9 +92,14 @@ Update: Sibling's Collaboration Copy Engine (Modern + Fallback)
                     <!-- Template Judul (Dinamic) -->
                     <div>
                         <label class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-2 block">📝 4. Template Judul Sampul</label>
-                        <select id="templateTitle" class="w-full bg-slate-800 border border-slate-700 rounded-xl px-4 py-3 text-sm focus:border-cyan-500 outline-none text-yellow-400 font-semibold">
-                            <!-- Diisi oleh Javascript -->
-                        </select>
+                        <div class="relative">
+                            <select id="templateTitle" class="w-full bg-slate-800 border border-slate-700 rounded-xl px-4 py-3 text-sm focus:border-cyan-500 outline-none text-yellow-400 font-semibold appearance-none">
+                                <!-- Diisi oleh Javascript -->
+                            </select>
+                            <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-slate-400">
+                                <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
+                            </div>
+                        </div>
                         <input type="text" id="customTitle" placeholder="Ketik Judul Custom..." class="w-full mt-3 bg-slate-800 border border-amber-500 rounded-xl px-4 py-3 text-sm hidden">
                     </div>
 
@@ -194,9 +199,10 @@ Update: Sibling's Collaboration Copy Engine (Modern + Fallback)
     </div>
 
     <script>
-        // Data Template Judul per Tema
+        // Data Template Judul per Tema (UPGRADED DENGAN 15 HOOK STOP-SCROLL)
         const templates = {
             "3iReborn": [
+                "3iReborn Hack: Cukup 7 Hari Merubah Dinding FB Jadi Mesin Pencetak Closing.",
                 "3 Syarat Join di 3iReborn yang Wajib Diketahui!",
                 "5 Kesalahan Fatal Pemula di 3iReborn (Hindari Ini!)",
                 "Rahasia 1 Tahun Tembus Target 3iReborn",
@@ -225,11 +231,23 @@ Update: Sibling's Collaboration Copy Engine (Modern + Fallback)
                 "Fakta Unik Program Melali Bali yang Bikin Penasaran"
             ],
             "NPA Smart System": [
-                "3 Fitur Sakti NPA Smart System Bikin Kerja Otomatis",
-                "Bongkar Rahasia NPA Smart System Untuk Pemula",
-                "5 Alasan Wajib Punya NPA Smart System Hari Ini",
-                "Kerja Santai Hasil Maksimal? Ini Rahasia NPA Smart System!",
-                "Jangan Ketinggalan Era Digital! Pahami 3 Hal Ini di NPA"
+                // Kategori 1: Curiosity (Bongkar Rahasia)
+                "7 Rahasia Gila Menaklukkan Penolakan Prospek Tanpa Harus Keluar Rumah!",
+                "3 Langkah Senyap Menembus Algoritma FB Pro Khusus Pejuang Jaringan.",
+                "9 Kolam Uang yang Sering Diabaikan Pemain MLM (Nomor 4 Bikin Kaget!).",
+                "1 Sistem AI yang Akan Menggantikan 99% Tugas Presentasi Anda.",
+                "5 Trik Psikologis Mengubah Kata 'Saya Pikir-Pikir Dulu' Menjadi 'Transfer ke Mana?'.",
+                // Kategori 2: Pain Points (Titik Sakit)
+                "5 Kesalahan Fatal Saat Follow Up yang Bikin Prospek Langsung Blokir WA Anda.",
+                "99% Pebisnis Jaringan Gagal Closing Karena Melupakan 1 Trik Sederhana Ini.",
+                "4 Alasan Utama Kenapa Tim Anda Kena 'Muntaber' (Mundur Tanpa Berita).",
+                "Stop Lakukan 3 Cara Kuno Ini Kalau Tidak Mau Kehabisan Daftar Nama Prospek!",
+                "7 Tanda Bahaya Bisnis Jaringan Anda Sedang Menuju Kebangkrutan.",
+                // Kategori 3: Speed & Result (Hasil Cepat)
+                "1 Jam Setting Sistem, Prospek Datang Sendiri Selama 30 Hari Penuh!",
+                "5 Menit Bikin Custom LP yang Bikin Kompetitor Anda Nangis di Pojokan!",
+                "Lipat Gandakan Omset 300% Hanya dengan Mengganti 2 Baris Kalimat Penawaran Ini.",
+                "Rumus 1-3-9: Cara Paling Brutal Membangun Duplikasi Tim Secara Otomatis."
             ]
         };
 
