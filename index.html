@@ -1,8 +1,8 @@
 <!--
 ═══════════════════════════════════════════════════════════════
-🚀 NPA REELS MASTER V2.6
+🚀 NPA REELS MASTER V2.8
 Special Project for 3iReborn & Nganggur Preneur Akademi
-Update: Added FOMO + Comedy Style for High Engagement Captions
+Update: Restored AI Model Selection (Fix Connection Issues)
 ═══════════════════════════════════════════════════════════════
 -->
 
@@ -13,7 +13,7 @@ Update: Added FOMO + Comedy Style for High Engagement Captions
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
     
-    <title>🚀 NPA REELS MASTER V2.6</title>
+    <title>🚀 NPA REELS MASTER V2.8</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
@@ -30,7 +30,7 @@ Update: Added FOMO + Comedy Style for High Engagement Captions
     <div id="loadingScreen" class="fixed inset-0 z-[100] flex flex-col items-center justify-center bg-slate-950 transition-opacity duration-700">
         <div class="text-7xl mb-6 animate-bounce">🚀</div>
         <h1 class="text-3xl font-black tracking-wide text-center uppercase text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-600">NPA REELS MASTER</h1>
-        <p class="text-xl font-bold text-pink-500 mt-2">V2.6 Ultimate Copy</p>
+        <p class="text-xl font-bold text-pink-500 mt-2">V2.8 Ultimate Copy</p>
         <p class="mt-4 text-slate-400 text-sm">Powered by</p>
         <h2 class="text-lg font-bold text-cyan-400 tracking-widest">NPA SMART SYSTEM VVIP</h2>
         <div class="mt-8 w-64 h-2 rounded-full bg-slate-800 overflow-hidden shadow-[0_0_15px_rgba(6,182,212,0.4)]">
@@ -41,8 +41,8 @@ Update: Added FOMO + Comedy Style for High Engagement Captions
     <!-- HEADER -->
     <div class="max-w-6xl mx-auto mb-8 text-center mt-4">
         <div class="inline-block px-4 py-1 rounded-full bg-blue-900/50 border border-blue-500 text-blue-300 text-xs font-bold tracking-widest mb-3">NPA EXCLUSIVE TOOL</div>
-        <h1 class="text-4xl md:text-5xl font-black uppercase text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-600 tracking-tight">REELS MASTER</h1>
-        <p class="text-slate-400 mt-2 font-medium text-sm md:text-base">Auto-Generate Cover Reels, Script Video, & Caption Sakti</p>
+        <h1 class="text-4xl md:text-5xl font-black uppercase text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-600 tracking-tight">REELS & FEED MASTER</h1>
+        <p class="text-slate-400 mt-2 font-medium text-sm md:text-base">Auto-Generate Cover, Script Video, & Caption Cerdas</p>
     </div>
 
     <!-- MAIN DASHBOARD -->
@@ -61,9 +61,20 @@ Update: Added FOMO + Comedy Style for High Engagement Captions
                     <input type="password" id="apiKey" placeholder="Paste API Key..." class="w-full bg-slate-800 border border-slate-700 rounded-xl px-4 py-3 text-sm focus:border-cyan-500 outline-none transition-all">
                 </div>
 
+                <!-- Model AI (PILIHAN ROBOT) -->
+                <div class="mb-5">
+                    <label class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-2 block">🤖 2. Pilih Mesin Robot AI</label>
+                    <select id="aiModel" class="w-full bg-slate-800 border border-slate-700 rounded-xl px-4 py-3 text-sm focus:border-cyan-500 outline-none text-blue-300 font-semibold">
+                        <option value="gemini-1.5-flash">Gemini 1.5 Flash (Paling Stabil & Ngebut)</option>
+                        <option value="gemini-1.5-pro">Gemini 1.5 Pro (Lebih Pintar & Detail)</option>
+                        <option value="gemini-2.0-flash">Gemini 2.0 Flash (Generasi Baru)</option>
+                        <option value="gemini-2.5-flash">Gemini 2.5 Flash (Terbaru - Eksperimental)</option>
+                    </select>
+                </div>
+
                 <!-- Upload Foto -->
                 <div class="mb-5">
-                    <label class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-2 block">📸 2. Foto Referensi Model</label>
+                    <label class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-2 block">📸 3. Foto Referensi Model</label>
                     <div class="border-2 border-dashed border-slate-700 rounded-2xl p-3 text-center bg-slate-800/50">
                         <img id="previewImage" src="https://placehold.co/400x500/1e293b/FFFFFF?text=FOTO+POTRAIT" class="w-32 h-40 object-cover mx-auto rounded-xl shadow-lg mb-3">
                         <input id="photoUpload" type="file" accept="image/*" class="hidden" onchange="previewFoto(event)">
@@ -77,7 +88,7 @@ Update: Added FOMO + Comedy Style for High Engagement Captions
                 <div class="space-y-4">
                     <!-- Tema -->
                     <div>
-                        <label class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-2 block">💼 3. Tema Bisnis</label>
+                        <label class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-2 block">💼 4. Tema Bisnis</label>
                         <select id="theme" onchange="updateTemplates()" class="w-full bg-slate-800 border border-slate-700 rounded-xl px-4 py-3 text-sm focus:border-cyan-500 outline-none text-cyan-300 font-semibold">
                             <option value="3iReborn">3iReborn</option>
                             <option value="Istikmal Syariah">Istikmal Syariah</option>
@@ -90,7 +101,7 @@ Update: Added FOMO + Comedy Style for High Engagement Captions
 
                     <!-- Template Judul (Dinamic) -->
                     <div>
-                        <label class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-2 block">📝 4. Template Judul Sampul</label>
+                        <label class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-2 block">📝 5. Template Judul Sampul</label>
                         <div class="relative">
                             <select id="templateTitle" class="w-full bg-slate-800 border border-slate-700 rounded-xl px-4 py-3 text-sm focus:border-cyan-500 outline-none text-yellow-400 font-semibold appearance-none">
                                 <!-- Diisi oleh Javascript -->
@@ -104,7 +115,7 @@ Update: Added FOMO + Comedy Style for High Engagement Captions
 
                     <!-- Ekspresi Wajah -->
                     <div>
-                        <label class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-2 block">🎭 5. Ekspresi Model</label>
+                        <label class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-2 block">🎭 6. Ekspresi Model</label>
                         <select id="expression" class="w-full bg-slate-800 border border-slate-700 rounded-xl px-4 py-3 text-sm focus:border-cyan-500 outline-none text-pink-400">
                             <option value="Senyum Percaya Diri & Menunjuk">😃 Senyum Percaya Diri & Menunjuk Teks</option>
                             <option value="Berwibawa & Profesional">👔 Berwibawa & Profesional</option>
@@ -116,7 +127,7 @@ Update: Added FOMO + Comedy Style for High Engagement Captions
 
                     <!-- ASPEK RASIO -->
                     <div>
-                        <label class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-2 block">📏 6. Aspek Rasio (Ukuran Foto)</label>
+                        <label class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-2 block">📏 7. Aspek Rasio (Ukuran Foto)</label>
                         <select id="aspectRatio" class="w-full bg-slate-800 border border-slate-700 rounded-xl px-4 py-3 text-sm focus:border-cyan-500 outline-none text-purple-400 font-semibold">
                             <option value="9:16 (Portrait Vertikal)">📱 9:16 (Reels / TikTok / Shorts)</option>
                             <option value="1:1 (Square)">⬛ 1:1 (Feed FB / Instagram Square)</option>
@@ -127,7 +138,7 @@ Update: Added FOMO + Comedy Style for High Engagement Captions
 
                     <!-- Format Video -->
                     <div>
-                        <label class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-2 block">🎬 7. Format Script Video</label>
+                        <label class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-2 block">🎬 8. Format Script Video</label>
                         <select id="videoFormat" class="w-full bg-slate-800 border border-slate-700 rounded-xl px-4 py-3 text-sm focus:border-cyan-500 outline-none text-emerald-400">
                             <option value="3 Scene (Masing-masing 8-10 Detik)">Pendek - 3 Scene (Total ~30 Detik)</option>
                             <option value="5 Scene (Masing-masing 8-10 Detik)">Panjang - 5 Scene (Total ~50 Detik)</option>
@@ -136,9 +147,8 @@ Update: Added FOMO + Comedy Style for High Engagement Captions
 
                     <!-- GAYA BAHASA CAPTION -->
                     <div>
-                        <label class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-2 block">✍️ 8. Gaya Bahasa Caption</label>
+                        <label class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-2 block">✍️ 9. Gaya Bahasa Caption</label>
                         <select id="captionStyle" class="w-full bg-slate-800 border border-slate-700 rounded-xl px-4 py-3 text-sm focus:border-cyan-500 outline-none text-orange-400 font-bold">
-                            <!-- FOMO + KOMEDI DITAMBAHKAN DI SINI -->
                             <option value="FOMO + Komedi Satire (Bikin takut ketinggalan sukses, tapi dibalut dengan humor lucu, candaan santai, dan sentilan halus yang bikin ketawa)">🔥 FOMO + KOMEDI (Mendesak & Lucu-lucuan)</option>
                             <option value="Pro & Kontra (Kontroversial - Memicu Debat)">⚡ PRO & KONTRA (Memicu Interaksi)</option>
                             <option value="Hard Selling (Jualan Langsung - To The Point)">💰 HARD SELLING (Fokus Closing Cepat)</option>
@@ -181,7 +191,7 @@ Update: Added FOMO + Comedy Style for High Engagement Captions
             <div class="bg-slate-900/80 backdrop-blur-xl border border-slate-800 rounded-3xl p-6 shadow-2xl relative overflow-hidden">
                 <div class="absolute top-0 right-0 w-32 h-32 bg-pink-500/10 rounded-full blur-3xl"></div>
                 <div class="flex justify-between items-center mb-4">
-                    <h2 class="text-xl font-bold text-pink-400"><i class="fa-solid fa-pen-nib mr-2"></i> Caption FB (Pendek, Padat, Jelas)</h2>
+                    <h2 class="text-xl font-bold text-pink-400"><i class="fa-solid fa-pen-nib mr-2"></i> Auto-Caption FB Cerdas</h2>
                     <button onclick="copyTeks('outputCaption')" class="bg-slate-800 hover:bg-slate-700 text-white text-xs px-4 py-2 rounded-lg font-bold transition focus:ring-2 focus:ring-pink-500">SALIN TEKS</button>
                 </div>
                 <textarea id="outputCaption" rows="8" class="w-full bg-slate-950 border border-slate-800 rounded-xl p-4 text-sm text-pink-100 outline-none resize-none leading-relaxed" placeholder="Caption panjang untuk FB akan muncul di sini..." readonly></textarea>
@@ -213,7 +223,7 @@ Update: Added FOMO + Comedy Style for High Engagement Captions
         <div class="bg-slate-900 border border-slate-700 rounded-3xl p-8 max-w-sm w-full text-center shadow-[0_0_50px_rgba(37,99,235,0.3)]">
             <div class="text-6xl animate-bounce mb-4">🤖</div>
             <h3 class="text-xl font-bold text-white mb-2">Meracik Naskah & Sampul...</h3>
-            <p class="text-xs text-slate-400 mb-6">Menerapkan pola H-M-S-CTA dengan gaya santai dan berwibawa.</p>
+            <p class="text-xs text-slate-400 mb-6">Mendeteksi rasio gambar dan menyesuaikan gaya copywriting.</p>
             <div class="w-full bg-slate-800 rounded-full h-2 overflow-hidden">
                 <div class="bg-gradient-to-r from-blue-500 to-cyan-400 h-2 rounded-full w-full animate-[pulse_1s_ease-in-out_infinite]"></div>
             </div>
@@ -221,7 +231,7 @@ Update: Added FOMO + Comedy Style for High Engagement Captions
     </div>
 
     <script>
-        // Data Template Judul per Tema
+        // Data Template Judul per Tema (UPGRADED DENGAN 20 HOOK BRUTAL 3IREBORN)
         const templates = {
             "3iReborn": [
                 "3 Rahasia Brutal Closing 3IReborn Tanpa Ditolak Calon Prospek",
@@ -294,8 +304,13 @@ Update: Added FOMO + Comedy Style for High Engagement Captions
             }, 1500);
 
             updateTemplates();
+            
+            // Muat API Key & Model AI yang tersimpan dari browser
             const savedKey = localStorage.getItem("npa_reels_api_key");
+            const savedModel = localStorage.getItem("npa_reels_ai_model");
+            
             if (savedKey) document.getElementById("apiKey").value = savedKey;
+            if (savedModel) document.getElementById("aiModel").value = savedModel;
         };
 
         function updateTemplates() {
@@ -381,6 +396,7 @@ Update: Added FOMO + Comedy Style for High Engagement Captions
 
         async function prosesGenerate() {
             const apiKey = document.getElementById('apiKey').value.trim();
+            const aiModel = document.getElementById('aiModel').value; // Mengambil Pilihan Robot
             const theme = document.getElementById('theme').value;
             const expression = document.getElementById('expression').value;
             const aspectRatio = document.getElementById('aspectRatio').value; 
@@ -408,21 +424,32 @@ Update: Added FOMO + Comedy Style for High Engagement Captions
                 return;
             }
 
+            // Simpan API Key & Pilihan Robot ke memori HP
             localStorage.setItem("npa_reels_api_key", apiKey);
+            localStorage.setItem("npa_reels_ai_model", aiModel);
 
             const loadingModal = document.getElementById('loadingModal');
             loadingModal.classList.remove('hidden');
             loadingModal.classList.add('flex');
 
+            // 🧠 LOGIKA CERDAS: DETEKSI FORMAT REELS VS GAMBAR FEED
+            let isVideoReel = aspectRatio.includes("9:16");
+            let contentPlatform = isVideoReel ? "Facebook Reels (Video Pendek)" : "Facebook Feed (Postingan Gambar Biasa)";
+            let captionRules = isVideoReel 
+                ? "Aturan mutlak: Ini adalah caption untuk VIDEO REELS. CTA (Call To Action) di akhir WAJIB mengarahkan penonton untuk 'Menonton video sampai habis' atau 'Cek link di bio'. DILARANG KERAS MENGGUNAKAN GAYA BERCERITA PANJANG. Tulis sependek, sepadat, dan sejelas mungkin."
+                : "Aturan mutlak: Ini adalah caption untuk POSTINGAN GAMBAR (FEED). CTA (Call To Action) di akhir WAJIB mengarahkan pembaca untuk 'Berdiskusi di kolom komentar' atau 'Komen mau'. DILARANG KERAS menggunakan kata-kata 'tonton video ini', 'simak video ini', atau hal lain yang merujuk pada video. Tulisan boleh sedikit lebih panjang dan mengalir asik seperti sedang ngobrol.";
+
             const promptText = `Anda adalah Ahli Copywriting, Content Creator FB Pro, dan AI Prompter tingkat dewa.
-            Analisa gambar referensi yang dilampirkan. Buatkan konten khusus Facebook Reels berdasarkan:
+            Analisa gambar referensi yang dilampirkan. Buatkan konten khusus ${contentPlatform} berdasarkan:
             - Tema Bisnis: ${theme}
             - Judul Utama: "${finalTitle}"
             - Ekspresi Model: ${expression}
             - Aspek Rasio: ${aspectRatio}
-            - Format Video: ${videoFormat}
+            - Format Script Video (jika butuh): ${videoFormat}
             - Gaya Bahasa Caption: ${captionStyle}
             - Pola Caption Wajib: Terapkan struktur HOOK - MASALAH - SOLUSI - CTA - HASHTAGS secara berurutan.
+
+            ${captionRules}
 
             BALAS HANYA DENGAN JSON VALID. 
             PERINGATAN KERAS: Semua nilai/value di dalam JSON WAJIB berupa TEKS BIASA (STRING). Jangan gunakan array [] atau object {} di dalam nilainya. Gunakan \\n untuk garis baru (enter).
@@ -431,11 +458,12 @@ Update: Added FOMO + Comedy Style for High Engagement Captions
             {
                 "prompt": "Buatkan instruksi Prompt Gambar AI untuk membuat Foto Sampul. Syarat mutlak: Aspek rasio ${aspectRatio}. Jadikan gambar referensi sebagai patokan utama. Model berekspresi '${expression}'. Di area aman (tengah agak ke atas), letakkan teks tipografi 3D Bold Gradient tebal bertuliskan persis judul ini: '${finalTitle}'. Tuliskan sebagai 1 paragraf string.",
                 "script": "Naskah Video H-M-S-CTA (${videoFormat}). Tuliskan semua naskah dan instruksi scene dalam 1 STRING TEKS PANJANG. Gunakan karakter \\n untuk memisahkan baris antar scene. Dilarang keras menggunakan format Array.",
-                "caption": "Buatkan Caption Facebook dengan pola struktur (HOOK - MASALAH - SOLUSI - CTA - HASHTAGS) dan gaya bahasa: ${captionStyle}. DILARANG KERAS MENGGUNAKAN GAYA BERCERITA PANJANG (STORYTELLING). HARUS DITULIS PENDEK, PADAT, JELAS, DAN TO THE POINT. Gunakan poin-poin singkat bila perlu. Tuliskan sebagai 1 STRING TEKS PANJANG."
+                "caption": "Buatkan Caption Facebook sesuai platform (${contentPlatform}) dengan pola struktur (HOOK - MASALAH - SOLUSI - CTA - HASHTAGS) dan gaya bahasa: ${captionStyle}. Patuhi Aturan Mutlak terkait CTA dan format panjang/pendek kalimat. Tuliskan sebagai 1 STRING TEKS PANJANG."
             }`;
 
             try {
-                const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${apiKey}`, {
+                // Fetch URL menggunakan Model AI yang dipilih dari dropdown
+                const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${aiModel}:generateContent?key=${apiKey}`, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ 
@@ -449,6 +477,8 @@ Update: Added FOMO + Comedy Style for High Engagement Captions
                 if (data.error) {
                     if (data.error.code === 429) {
                         throw new Error("Mesin API Key ini sedang istirahat (Cool Down) karena Limit Gratisan! Tunggu sekitar 1 Menit lalu klik Generate lagi ya Ndan.");
+                    } else if (data.error.code === 404 || data.error.code === 403) {
+                         throw new Error("Model " + aiModel + " sepertinya belum tersedia/ditolak untuk API Key Ndan. Silakan pilih 'Gemini 1.5 Flash' di menu Robot AI dan coba lagi.");
                     } else {
                         throw new Error(data.error.message);
                     }
