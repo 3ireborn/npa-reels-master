@@ -1,8 +1,8 @@
 <!--
 ═══════════════════════════════════════════════════════════════
-🚀 NPA REELS MASTER V3.0
+🚀 NPA REELS MASTER V3.1
 Special Project for 3iReborn & Nganggur Preneur Akademi
-Update: Added 20 Istikmal Syariah Hooks & Anti-Clickbait Script Logic
+Update: Locked Cinematic Video Script Format (Visual, Voiceover, Text)
 ═══════════════════════════════════════════════════════════════
 -->
 
@@ -13,7 +13,7 @@ Update: Added 20 Istikmal Syariah Hooks & Anti-Clickbait Script Logic
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
     
-    <title>🚀 NPA REELS MASTER V3.0</title>
+    <title>🚀 NPA REELS MASTER V3.1</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
@@ -30,7 +30,7 @@ Update: Added 20 Istikmal Syariah Hooks & Anti-Clickbait Script Logic
     <div id="loadingScreen" class="fixed inset-0 z-[100] flex flex-col items-center justify-center bg-slate-950 transition-opacity duration-700">
         <div class="text-7xl mb-6 animate-bounce">🚀</div>
         <h1 class="text-3xl font-black tracking-wide text-center uppercase text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-600">NPA REELS MASTER</h1>
-        <p class="text-xl font-bold text-pink-500 mt-2">V3.0 Ultimate Copy</p>
+        <p class="text-xl font-bold text-pink-500 mt-2">V3.1 Ultimate Copy</p>
         <p class="mt-4 text-slate-400 text-sm">Powered by</p>
         <h2 class="text-lg font-bold text-cyan-400 tracking-widest">NPA SMART SYSTEM VVIP</h2>
         <div class="mt-8 w-64 h-2 rounded-full bg-slate-800 overflow-hidden shadow-[0_0_15px_rgba(6,182,212,0.4)]">
@@ -181,10 +181,10 @@ Update: Added 20 Istikmal Syariah Hooks & Anti-Clickbait Script Logic
             <div class="bg-slate-900/80 backdrop-blur-xl border border-slate-800 rounded-3xl p-6 shadow-2xl relative overflow-hidden">
                 <div class="absolute top-0 right-0 w-32 h-32 bg-yellow-500/10 rounded-full blur-3xl"></div>
                 <div class="flex justify-between items-center mb-4">
-                    <h2 class="text-xl font-bold text-yellow-400"><i class="fa-solid fa-video mr-2"></i> Script Video (Anti-Clickbait)</h2>
+                    <h2 class="text-xl font-bold text-yellow-400"><i class="fa-solid fa-video mr-2"></i> Script Video (Cinematic Format)</h2>
                     <button onclick="copyTeks('outputScript')" class="bg-slate-800 hover:bg-slate-700 text-white text-xs px-4 py-2 rounded-lg font-bold transition focus:ring-2 focus:ring-yellow-500">SALIN TEKS</button>
                 </div>
-                <textarea id="outputScript" rows="12" class="w-full bg-slate-950 border border-slate-800 rounded-xl p-4 text-sm text-yellow-100 outline-none resize-none leading-relaxed" placeholder="Naskah lengkap yang menjawab judul akan muncul di sini..." readonly></textarea>
+                <textarea id="outputScript" rows="12" class="w-full bg-slate-950 border border-slate-800 rounded-xl p-4 text-sm text-yellow-100 outline-none resize-none leading-relaxed" placeholder="Naskah lengkap dengan format SCENE, VISUAL, VOICEOVER, TEXT OVERLAY akan muncul di sini..." readonly></textarea>
             </div>
 
             <!-- Output FB Caption -->
@@ -223,7 +223,7 @@ Update: Added 20 Istikmal Syariah Hooks & Anti-Clickbait Script Logic
         <div class="bg-slate-900 border border-slate-700 rounded-3xl p-8 max-w-sm w-full text-center shadow-[0_0_50px_rgba(37,99,235,0.3)]">
             <div class="text-6xl animate-bounce mb-4">🤖</div>
             <h3 class="text-xl font-bold text-white mb-2">Meracik Naskah & Sampul...</h3>
-            <p class="text-xs text-slate-400 mb-6">Mencocokkan naskah video dengan janji di judul (Anti-Clickbait).</p>
+            <p class="text-xs text-slate-400 mb-6">Membentuk naskah video cinematic yang garang dan caption anti-dongeng.</p>
             <div class="w-full bg-slate-800 rounded-full h-2 overflow-hidden">
                 <div class="bg-gradient-to-r from-blue-500 to-cyan-400 h-2 rounded-full w-full animate-[pulse_1s_ease-in-out_infinite]"></div>
             </div>
@@ -231,7 +231,7 @@ Update: Added 20 Istikmal Syariah Hooks & Anti-Clickbait Script Logic
     </div>
 
     <script>
-        // Data Template Judul per Tema (UPGRADED DENGAN 20 ISTIKMAL SYARIAH HOOKS)
+        // Data Template Judul per Tema
         const templates = {
             "3iReborn": [
                 "3 Rahasia Brutal Closing 3IReborn Tanpa Ditolak Calon Prospek",
@@ -445,9 +445,10 @@ Update: Added 20 Istikmal Syariah Hooks & Anti-Clickbait Script Logic
             loadingModal.classList.remove('hidden');
             loadingModal.classList.add('flex');
 
-            // 🧠 LOGIKA CERDAS V3.0: DETEKSI PLATFORM & ANTI-CLICKBAIT SCRIPT
+            // 🧠 LOGIKA CERDAS V3.1: KUNCI FORMAT SCRIPT VIDEO & BATASAN CAPTION
             let isVideoReel = aspectRatio.includes("9:16");
             let contentPlatform = isVideoReel ? "Facebook Reels (Video Pendek)" : "Facebook Feed (Postingan Gambar Biasa)";
+            
             let captionRules = isVideoReel 
                 ? "ATURAN MUTLAK REELS: 1. Maksimal 3-4 kalimat pendek. 2. DILARANG KERAS MENDONGENG/BERCERITA PANJANG. Tulis sependek mungkin. 3. CTA WAJIB: 'Tonton video sampai habis' atau 'Cek link di bio'."
                 : "ATURAN MUTLAK FEED: 1. Maksimal 5-6 kalimat pendek. 2. Langsung To The Point, DILARANG BERCERITA PANJANG LEBAR. 3. CTA WAJIB: 'Komen di bawah' atau 'Diskusi di komentar'. Dilarang menyuruh menonton video.";
@@ -460,10 +461,17 @@ Update: Added 20 Istikmal Syariah Hooks & Anti-Clickbait Script Logic
             - Aspek Rasio: ${aspectRatio}
             - Format Script Video (jika butuh): ${videoFormat}
             - Gaya Bahasa Caption: ${captionStyle}
-            - Pola Caption Wajib: Terapkan struktur HOOK - MASALAH - SOLUSI - CTA - HASHTAGS.
-
-            - Aturan Naskah Video (Anti-Clickbait): Isi naskah video WAJIB sinkron dan relevan dengan Judul Utama. Jika judul menyebutkan angka (misal: "5 Kesalahan", "3 Rahasia", dsb.), maka di dalam naskah HARUS dijabarkan poin-poin tersebut secara ringkas dan logis agar penonton mendapatkan jawaban yang dijanjikan.
             
+            ATURAN MUTLAK NASKAH VIDEO (WAJIB DIIKUTI JIKA MEMBUAT SCRIPT):
+            1. Anda HARUS menggunakan format baku ini untuk setiap scene:
+               SCENE [Nomor] ([Durasi]):
+               VISUAL: [Deskripsi tindakan, latar, dan ekspresi model]
+               VOICEOVER: [Apa yang diucapkan, gaya bahasa persuasif/FOMO/Santai]
+               TEXT OVERLAY: [Teks besar yang muncul di layar]
+            2. Terapkan pola H-M-S-CTA (Hook, Masalah, Solusi, Call to Action).
+            3. Sentuh Janji Judul: Jika judul menjanjikan "5 Rahasia", tidak perlu sebutkan semua kelima poin jika durasi tidak cukup. Cukup berikan 1 atau 2 poin paling mematikan sebagai "Bocoran/Teaser" di dalam narasi agar penonton penasaran, namun naskah tetap mengalir alami.
+
+            ATURAN CAPTION FB:
             ${captionRules}
             TULIS SEPENDEK MUNGKIN. JANGAN BERTELE-TELE.
 
@@ -472,9 +480,9 @@ Update: Added 20 Istikmal Syariah Hooks & Anti-Clickbait Script Logic
 
             Format JSON:
             {
-                "prompt": "Buatkan instruksi Prompt Gambar AI untuk membuat Foto Sampul. Syarat mutlak: Aspek rasio ${aspectRatio}. Jadikan gambar referensi sebagai patokan utama. Model berekspresi '${expression}'. Di area aman (tengah agak ke atas), letakkan teks tipografi 3D Bold Gradient tebal bertuliskan persis judul ini: '${finalTitle}'. Tuliskan sebagai 1 paragraf string.",
-                "script": "Naskah Video H-M-S-CTA (${videoFormat}). Tuliskan semua naskah dan instruksi scene dalam 1 STRING TEKS PANJANG. ATURAN WAJIB: Isi naskah HARUS menjawab poin-poin spesifik dari judul. Gunakan karakter \\n untuk memisahkan baris antar scene. Dilarang keras menggunakan format Array.",
-                "caption": "Buatkan Caption Facebook sesuai platform (${contentPlatform}) dengan pola struktur (HOOK-MASALAH-SOLUSI-CTA-HASHTAGS) dan gaya bahasa: ${captionStyle}. Patuhi Aturan Mutlak terkait CTA dan BATASAN MAKSIMAL KALIMAT. Tuliskan sebagai 1 STRING TEKS PANJANG."
+                "prompt": "Buatkan instruksi Prompt Gambar AI untuk Foto Sampul. Syarat mutlak: Aspek rasio ${aspectRatio}. Jadikan gambar referensi sebagai patokan. Model berekspresi '${expression}'. Di area aman, letakkan teks tipografi 3D Bold bertuliskan persis judul ini: '${finalTitle}'. Tulis sebagai 1 paragraf string.",
+                "script": "Tuliskan naskah video mengikuti ATURAN MUTLAK NASKAH VIDEO (menggunakan format SCENE, VISUAL, VOICEOVER, TEXT OVERLAY). Gunakan \\n\\n untuk pemisah antar scene. Tuliskan sebagai 1 STRING TEKS PANJANG.",
+                "caption": "Buatkan Caption Facebook sesuai platform (${contentPlatform}) dengan gaya bahasa: ${captionStyle}. Patuhi Aturan Mutlak CTA dan BATASAN MAKSIMAL KALIMAT. Tuliskan sebagai 1 STRING TEKS PANJANG."
             }`;
 
             try {
